@@ -1,5 +1,6 @@
 <div *ngIf="products">
+    <h2>{{category | uppercase }} List</h2>
     <div *ngFor="let product of products">
-        <h3>{{product.name}}</h3>
+        {{product.name}}
     </div>
 </div>

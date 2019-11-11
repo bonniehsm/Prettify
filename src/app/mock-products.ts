@@ -1,9 +1,9 @@
 import { Product } from './product';
 
 export enum Category {
-    Makeup = "Makeup",
-    Skin = "Skin",
-    Hair = "Hair",
+    Makeup = "makeup",
+    Skincare = "skincare",
+    Hair = "hair",
 }
 
 export const MOCK_PRODUCTS: Product[] = [
@@ -59,7 +59,7 @@ export const MOCK_PRODUCTS: Product[] = [
     },
     {
         id: 5,
-        category: Category.Skin,
+        category: Category.Skincare,
         name: "Youth Preserve Moisturizer",
         price: [60, 20],
         size: "",
@@ -69,7 +69,7 @@ export const MOCK_PRODUCTS: Product[] = [
     },
     {
         id: 6,
-        category: Category.Skin,
+        category: Category.Skincare,
         name: "Facial Cream",
         price: [38, 65],
         size: "",
@@ -79,7 +79,7 @@ export const MOCK_PRODUCTS: Product[] = [
     },
     {
         id: 7,
-        category: Category.Skin,
+        category: Category.Skincare,
         name: "Face Cleanser",
         price: [49, 20],
         size: "",
