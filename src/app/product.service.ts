@@ -17,4 +17,8 @@ export class ProductService {
     return of(MOCK_PRODUCTS)
       .pipe(map( products => products.filter( product => product.category == category)));
   }
+
+  getProductById(id: number): Observable<Product>{
+    return of(MOCK_PRODUCTS.find(product => product.id === id));
+  }
 }
