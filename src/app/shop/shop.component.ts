@@ -29,7 +29,6 @@ export class ShopComponent implements OnInit {
     this.getCategory();
     this.productService.getProductsByCategory(this.category)
       .subscribe(products => this.products = products);
-
   }
 
 }
