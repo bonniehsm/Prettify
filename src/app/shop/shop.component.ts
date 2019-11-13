@@ -9,20 +9,40 @@ import { ProductService } from '../product.service';
   templateUrl: './shop.component.html',
   styleUrls: ['./shop.component.scss']
 })
+
 export class ShopComponent implements OnInit {
   products: Product[];
-  category: String;
+  category: string;
+  allProductCategories: Object;
+  currentCategory: Object;
 
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(()=> this.getProductsByCategory());
+    this.route.paramMap.subscribe(() => {
+      this.getProductsByCategory();
+      this.getAllCategories();
+      this.setCurrentCategory();  //test     
+    });
   }
 
-  getCategory(): void{
+  getCategory(): void {
     this.category = this.route.snapshot.paramMap.get('category');
+  }
+
+  getAllCategories(): void {
+    this.productService.getAllCategories(this.category)
+      .subscribe((allCategories) => {      
+        this.allProductCategories = allCategories;
+        console.log(this.allProductCategories);
+      });
+  }
+
+  setCurrentCategory(): void {
+    this.currentCategory = this.allProductCategories[this.category];
+    Object.keys(this.currentCategory).forEach(key=>console.log(`${key}`));
   }
 
   getProductsByCategory(): void {

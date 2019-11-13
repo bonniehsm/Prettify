@@ -1,6 +1,28 @@
-<div *ngIf="products">
-    <h2>{{category | uppercase }} List</h2>
-    <div *ngFor="let product of products">
-        <a routerLink="/details/{{product.id}}">{{product.name}}</a>        
-    </div>
+<div class="shop-sidenav">
+    <mat-sidenav-container>
+        <mat-sidenav mode="side" opened>
+            <h2>{{category | uppercase}}</h2>
+            <div *ngIf="currentCategory">
+                <div *ngFor="let subCategory of currentCategory | keyvalue">
+                    <h3>{{subCategory.key | uppercase}}</h3>
+                    <div *ngFor="let group of subCategory.value">
+                        <a [title]="group" href="#">
+                            {{group}}
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div *ngIf="products">               
+                <div *ngFor="let product of products">
+                    <a routerLink="/details/{{product.id}}">
+                        <div class="product-card">
+                            {{product.name}}
+                        </div>
+                    </a>        
+                </div>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
 </div>

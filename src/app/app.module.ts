@@ -7,6 +7,8 @@ import {
   MatCardModule,  
   MatMenuModule,
   MatTabsModule,
+  MatGridListModule,
+  MatSidenavModule,
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +31,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     MatCardModule,
     MatMenuModule,
     MatTabsModule,
+    MatGridListModule,
+    MatSidenavModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

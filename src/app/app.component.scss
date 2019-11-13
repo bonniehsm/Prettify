@@ -1,15 +1,21 @@
 $bp-tablet: 959dp;
 $bp-mobile: 599dp;
 
-@media (min-width: $bp-mobile){
+@media (max-width: $bp-mobile){
     .mobile-topnav-bar {
         display: block;
     }
+    .desktop-topnav-bar, .tablet-topnav-bar {
+        display: none;
+    }
 }
 
-@media (min-width: $bp-tablet){
+@media (max-width: $bp-tablet){
     .desktop-topnav-bar, .mobile-topnav-bar {
         display: none;
+    }
+    .tablet-topnav-bar {
+        display: block;
     }
 }
 
