@@ -17,10 +17,21 @@
             <div *ngIf="products">               
                 <div *ngFor="let product of products">
                     <a routerLink="/details/{{product.id}}">
-                        <div class="product-card">
-                            {{product.name}}
-                        </div>
-                    </a>        
+                        <mat-card class="product-card">
+
+                            <mat-card-header>
+                                <mat-card-title>{{product.name}}</mat-card-title>
+                            </mat-card-header>
+                            <!--img mat-card-image src="" /-->
+                            <mat-card-content>
+                                {{ product.price | json }}
+                                <p *ngFor="let price of product.price">{{price | json}}</p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                                <button mat-button>Add to Wishlist</button>
+                            </mat-card-actions>
+                        </mat-card>  
+                    </a>      
                 </div>
             </div>
         </mat-sidenav-content>

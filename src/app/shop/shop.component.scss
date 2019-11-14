@@ -6,10 +6,6 @@
     }
 }
 
-.product-card {
-    margin: 5px 8px;
-    border: 1px solid black;
-    height: 100px;
-    width: 80px;
-    display: inline-block;
+.product-card--image {
+    background-size: cover;
 }
