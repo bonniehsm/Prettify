@@ -19,10 +19,15 @@ export class ProductService {
       .pipe(map( products => products.filter( product => product.category == category )));
   }
 
-  getAllCategories(category: string): Observable<Object>{
+  getSubCategories(category: string): Observable<Object>{
     /**todo: add error handling */
     return of(SubCategories);
   }
+
+  getAllCategories(): Observable<Object>{
+    /**todo: add error handling */
+    return of(SubCategories);
+  }  
 
   getProductById(id: number): Observable<Product>{
     /**todo: add error handling */

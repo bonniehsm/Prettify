@@ -11,9 +11,9 @@ import { ProductService } from '../product.service';
 })
 
 export class ShopComponent implements OnInit {
-  products: Product[];
+  products$: Product[];
   category: string;
-  allProductCategories: Object;
+  allSubProductCategories$: Object;
   currentCategory: Object;
 
   constructor(
@@ -33,22 +33,22 @@ export class ShopComponent implements OnInit {
   }
 
   getAllCategories(): void {
-    this.productService.getAllCategories(this.category)
-      .subscribe((allCategories) => {      
-        this.allProductCategories = allCategories;
-        console.log(this.allProductCategories);
+    this.productService.getSubCategories(this.category)
+      .subscribe((allSubProductCategories) => {      
+        this.allSubProductCategories$ = allSubProductCategories;
+        console.log(this.allSubProductCategories$);
       });
   }
 
   setCurrentCategory(): void {
-    this.currentCategory = this.allProductCategories[this.category];
+    this.currentCategory = this.allSubProductCategories$[this.category];
     Object.keys(this.currentCategory).forEach(key=>console.log(`${key}`));
   }
 
   getProductsByCategory(): void {
     this.getCategory();
     this.productService.getProductsByCategory(this.category)
-      .subscribe(products => this.products = products);
+      .subscribe(products => this.products$ = products);
   }
 
 }

@@ -14,10 +14,10 @@
             </div>
         </mat-sidenav>
         <mat-sidenav-content class="products-list-container">
-            <div *ngIf="products">               
+            <div *ngIf="products$">               
                 <mat-grid-list cols="4" rowHeight="4:3">
                     <mat-grid-tile 
-                        *ngFor="let product of products"
+                        *ngFor="let product of products$"
                         [rowspan]="1">
                         <a routerLink="/details/{{product.id}}">
                             <mat-card class="product-card">

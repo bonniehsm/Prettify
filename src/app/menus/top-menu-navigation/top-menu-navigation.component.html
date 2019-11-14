@@ -34,3 +34,27 @@
         Hair
     </a>
 </nav>
+
+<div class="topnav-submenu">
+    <!-- Makeup Category -->
+    <div *ngFor="let makeupSubCategories of makeupCategory$ | keyvalue">
+        <h4>{{makeupSubCategories.key | titlecase }}</h4>
+        <div *ngFor="let subsubCategories of makeupSubCategories.value">
+            <p>{{ subsubCategories | titlecase }}</p>
+        </div>
+    </div>
+    <!-- Skincare Category -->
+    <div *ngFor="let skincareSubCategories of skincareCategory$ | keyvalue">
+        <h4>{{skincareSubCategories.key}}</h4>
+        <div *ngFor="let subsubCategories of skincareSubCategories.value">
+            <p>{{ subsubCategories | titlecase }}</p>
+        </div>
+    </div>
+    <!-- Hair Category -->
+    <div *ngFor="let hairSubCategories of hairCategory$ | keyvalue">
+        <h4>{{ hairSubCategories.key | titlecase }}</h4>
+        <div *ngFor="let subsubCategories of hairSubCategories.value">
+            <p>{{ subsubCategories | titlecase }}</p>
+        </div>
+    </div>    
+</div>
