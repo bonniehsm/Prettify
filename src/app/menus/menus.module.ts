@@ -8,9 +8,10 @@ import {
   MatTabsModule,
 } from '@angular/material';
 import { AppRoutingModule } from './../app-routing.module';
+import { SubmenuComponent } from './submenu/submenu.component';
 
 @NgModule({
-  declarations: [TopMenuNavigationComponent],
+  declarations: [TopMenuNavigationComponent, SubmenuComponent],
   imports: [
     CommonModule,
     MatIconModule,

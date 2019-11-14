@@ -8,53 +8,30 @@
     </mat-card-content>
     <mat-menu #pageMenu="matMenu">
         <a mat-menu-item routerLink="/shop/makeup" title="Makeup products">
-        <span class="mdc-list-item__text">Makeup</span>
+            <span class="mdc-list-item__text">Makeup</span>
         </a>
         <a mat-menu-item routerLink="/shop/skincare" title="Skincare products">
-        <span class="mdc-list-item__text">Skincare</span>
+            <span class="mdc-list-item__text">Skincare</span>
         </a>
         <a mat-menu-item routerLink="/shop/hair" title="Hair products">
-        <span class="mdc-list-item__text">Hair</span>
+            <span class="mdc-list-item__text">Hair</span>
         </a>      
     </mat-menu>
 </mat-card>
 
-    <!-- Desktop View -->
+<!-- Desktop View -->
 <nav mat-tab-nav-bar class="desktop-topnav-bar">
     <a mat-tab-link routerLink="/">
         {{brand | uppercase}}
     </a>    
-    <a mat-tab-link routerLink="/shop/makeup">
+    <a mat-tab-link routerLink="/shop/makeup" class="topnav-bar--makeup">
         Makeup
     </a>
-    <a mat-tab-link routerLink="/shop/skincare">
+    <a mat-tab-link routerLink="/shop/skincare" class="topnav-bar--skinare">
         Skincare
     </a>
-    <a mat-tab-link routerLink="/shop/hair">
+    <a mat-tab-link routerLink="/shop/hair" class="topnav-bar--hair">
         Hair
     </a>
 </nav>
-
-<div class="topnav-submenu">
-    <!-- Makeup Category -->
-    <div *ngFor="let makeupSubCategories of makeupCategory$ | keyvalue">
-        <h4>{{makeupSubCategories.key | titlecase }}</h4>
-        <div *ngFor="let subsubCategories of makeupSubCategories.value">
-            <p>{{ subsubCategories | titlecase }}</p>
-        </div>
-    </div>
-    <!-- Skincare Category -->
-    <div *ngFor="let skincareSubCategories of skincareCategory$ | keyvalue">
-        <h4>{{skincareSubCategories.key}}</h4>
-        <div *ngFor="let subsubCategories of skincareSubCategories.value">
-            <p>{{ subsubCategories | titlecase }}</p>
-        </div>
-    </div>
-    <!-- Hair Category -->
-    <div *ngFor="let hairSubCategories of hairCategory$ | keyvalue">
-        <h4>{{ hairSubCategories.key | titlecase }}</h4>
-        <div *ngFor="let subsubCategories of hairSubCategories.value">
-            <p>{{ subsubCategories | titlecase }}</p>
-        </div>
-    </div>    
-</div>
+<app-submenu></app-submenu>
