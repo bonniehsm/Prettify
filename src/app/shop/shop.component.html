@@ -1,4 +1,4 @@
-<div class="shop-sidenav">
+<div class="shop-sidenav" style="height: 100vh;">
     <mat-sidenav-container>
         <mat-sidenav mode="side" opened>
             <h2>{{category | uppercase}}</h2>
@@ -13,26 +13,29 @@
                 </div>
             </div>
         </mat-sidenav>
-        <mat-sidenav-content>
+        <mat-sidenav-content class="products-list-container">
             <div *ngIf="products">               
-                <div *ngFor="let product of products">
-                    <a routerLink="/details/{{product.id}}">
-                        <mat-card class="product-card">
-
-                            <mat-card-header>
-                                <mat-card-title>{{product.name}}</mat-card-title>
-                            </mat-card-header>
-                            <!--img mat-card-image src="" /-->
-                            <mat-card-content>
-                                {{ product.price | json }}
-                                <p *ngFor="let price of product.price">{{price | json}}</p>
-                            </mat-card-content>
-                            <mat-card-actions>
-                                <button mat-button>Add to Wishlist</button>
-                            </mat-card-actions>
-                        </mat-card>  
-                    </a>      
-                </div>
+                <mat-grid-list cols="4" rowHeight="4:3">
+                    <mat-grid-tile 
+                        *ngFor="let product of products"
+                        [rowspan]="1">
+                        <a routerLink="/details/{{product.id}}">
+                            <mat-card class="product-card">
+                                <mat-card-header>
+                                    <mat-card-title>{{product.name}}</mat-card-title>
+                                </mat-card-header>
+                                <!--img mat-card-image class="product-card--image" src="" /-->
+                                <mat-card-content>
+                                    {{ product.price | json }}
+                                    <p *ngFor="let price of product.price">{{price | json}}</p>
+                                </mat-card-content>
+                                <mat-card-actions>
+                                    <button mat-button>Add to Wishlist</button>
+                                </mat-card-actions>
+                            </mat-card>  
+                        </a>      
+                    </mat-grid-tile>
+                </mat-grid-list>
             </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
