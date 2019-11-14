@@ -6,6 +6,7 @@ import {
   MatCardModule,  
   MatMenuModule,
   MatTabsModule,
+  MatListModule,
 } from '@angular/material';
 import { AppRoutingModule } from './../app-routing.module';
 import { SubmenuComponent } from './submenu/submenu.component';
@@ -15,6 +16,7 @@ import { SubmenuComponent } from './submenu/submenu.component';
   imports: [
     CommonModule,
     MatIconModule,
+    MatListModule,
     MatCardModule,  
     MatMenuModule,
     MatTabsModule,

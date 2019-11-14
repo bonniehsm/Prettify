@@ -1,29 +1,29 @@
 <div class="topnav-submenu">
     <!-- Makeup Category -->
-    <div *ngFor="let makeupSubCategories of makeupCategory$ | keyvalue" 
+    <mat-list *ngFor="let makeupSubCategories of makeupCategory$ | keyvalue" 
         id="topnav-submenu--makeup"
         class="topnav-submenu--category-container">
-        <h4>{{makeupSubCategories.key | titlecase }}</h4>
-        <div *ngFor="let subsubCategories of makeupSubCategories.value">
-            <p>{{ subsubCategories | titlecase }}</p>
-        </div>
-    </div>
+        <h4 mat-subheader>{{makeupSubCategories.key | titlecase }}</h4>
+        <mat-nav-list *ngFor="let subsubCategories of makeupSubCategories.value">
+            <a mat-list-item href="#">{{ subsubCategories | titlecase }}</a>
+        </mat-nav-list>
+    </mat-list>
     <!-- Skincare Category -->
-    <div *ngFor="let skincareSubCategories of skincareCategory$ | keyvalue" 
+    <mat-list *ngFor="let skincareSubCategories of skincareCategory$ | keyvalue" 
         id="topnav-submenu--skincare"
         class="topnav-submenu--category-container">
         <h4>{{skincareSubCategories.key}}</h4>
-        <div *ngFor="let subsubCategories of skincareSubCategories.value">
-            <p>{{ subsubCategories | titlecase }}</p>
-        </div>
-    </div>
+        <mat-nav-list *ngFor="let subsubCategories of skincareSubCategories.value">
+            <a mat-list-item href="#">{{ subsubCategories | titlecase }}</a>
+        </mat-nav-list>
+    </mat-list>
     <!-- Hair Category -->
-    <div *ngFor="let hairSubCategories of hairCategory$ | keyvalue" 
+    <mat-list *ngFor="let hairSubCategories of hairCategory$ | keyvalue" 
         id="topnav-submenu--hair"
         class="topnav-submenu--category-container">
         <h4>{{ hairSubCategories.key | titlecase }}</h4>
-        <div *ngFor="let subsubCategories of hairSubCategories.value">
-            <p>{{ subsubCategories | titlecase }}</p>
-        </div>
-    </div>    
+        <mat-nav-list *ngFor="let subsubCategories of hairSubCategories.value">
+            <a mat-list-item href="#">{{ subsubCategories | titlecase }}</a>
+        </mat-nav-list>
+    </mat-list>    
 </div>
