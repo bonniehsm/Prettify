@@ -12,6 +12,7 @@ import {
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
+import { MenusModule } from './menus/menus.module';
 import { AppComponent } from './app.component';
 import { ShopComponent } from './shop/shop.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
@@ -25,6 +26,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MenusModule,
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,

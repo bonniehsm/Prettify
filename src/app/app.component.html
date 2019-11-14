@@ -1,44 +1,6 @@
 <div class="root__container">
-
-  <!-- Mobile Device View -->
-  <mat-card class="mobile-topnav-bar">
-    <mat-card-title routerLink="/">{{title | uppercase}}</mat-card-title>
-    <mat-card-content>
-      <button mat-raised-button color="primary" [matMenuTriggerFor]="pageMenu">
-        <mat-icon aria-label="Shopping Menu Button">more_vert</mat-icon>
-      </button> 
-    </mat-card-content>
-    <mat-menu #pageMenu="matMenu">
-      <a mat-menu-item routerLink="/shop/makeup" title="Makeup products">
-        <span class="mdc-list-item__text">Makeup</span>
-      </a>
-      <a mat-menu-item routerLink="/shop/skincare" title="Skincare products">
-        <span class="mdc-list-item__text">Skincare</span>
-      </a>
-      <a mat-menu-item routerLink="/shop/hair" title="Hair products">
-        <span class="mdc-list-item__text">Hair</span>
-      </a>      
-    </mat-menu>
-  </mat-card>
-
-  <!-- Desktop View -->
-  <nav mat-tab-nav-bar class="desktop-topnav-bar">
-    <a mat-tab-link routerLink="/">
-      {{brand | uppercase}}
-    </a>    
-    <a mat-tab-link routerLink="/shop/makeup">
-      Makeup
-    </a>
-    <a mat-tab-link routerLink="/shop/skincare">
-      Skincare
-    </a>
-    <a mat-tab-link routerLink="/shop/hair">
-      Hair
-    </a>
-  </nav>
-
+  <app-top-menu-navigation [brand]="brand"></app-top-menu-navigation>
   <main class="main__container">
       <router-outlet></router-outlet>
   </main>
-
 </div>
