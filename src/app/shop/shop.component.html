@@ -1,9 +1,9 @@
 <div class="shop-sidenav" style="height: 100vh;">
     <mat-sidenav-container>
         <mat-sidenav mode="side" opened>
-            <h2>{{category | uppercase}}</h2>
-            <div *ngIf="currentSubProductCategories$">
-                <div *ngFor="let subCategory of currentSubProductCategories$ | keyvalue">
+            <div *ngIf="allSubProductCategories$">
+                <h2>{{category | uppercase}}</h2>
+                <div *ngFor="let subCategory of allSubProductCategories$[category] | keyvalue">
                     <h3>{{subCategory.key | uppercase}}</h3>
                     <div *ngFor="let group of subCategory.value">
                         <a [title]="group" href="#">
