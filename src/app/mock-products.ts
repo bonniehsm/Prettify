@@ -71,7 +71,7 @@ export const MOCK_PRODUCTS: Product[] = [
         id: 6,
         category: Category.Skincare,
         name: "Facial Cream",
-        price: [38, 65],
+        price: [65, 38],
         size: "",
         description: "A lightweight moisturizer that provides 24-hour hydration.",
         images: ["", ""],
