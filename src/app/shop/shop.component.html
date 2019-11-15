@@ -2,8 +2,8 @@
     <mat-sidenav-container>
         <mat-sidenav mode="side" opened>
             <h2>{{category | uppercase}}</h2>
-            <div *ngIf="currentCategory">
-                <div *ngFor="let subCategory of currentCategory | keyvalue">
+            <div *ngIf="currentSubProductCategories$">
+                <div *ngFor="let subCategory of currentSubProductCategories$ | keyvalue">
                     <h3>{{subCategory.key | uppercase}}</h3>
                     <div *ngFor="let group of subCategory.value">
                         <a [title]="group" href="#">

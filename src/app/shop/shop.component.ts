@@ -14,7 +14,7 @@ export class ShopComponent implements OnInit {
   products$: Product[];
   category: string;
   allSubProductCategories$: Object;
-  currentCategory: Object;
+  currentSubProductCategories$: Object;
 
   constructor(
     private productService: ProductService,
@@ -23,8 +23,7 @@ export class ShopComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(() => {
       this.getProductsByCategory();
-      this.getAllCategories();
-      this.setCurrentCategory();  //test     
+      this.getAllCategories();  
     });
   }
 
@@ -33,16 +32,13 @@ export class ShopComponent implements OnInit {
   }
 
   getAllCategories(): void {
-    this.productService.getSubCategories(this.category)
+    console.log(`shop component - getAllCategories()`);
+    this.productService.getAllCategories()
       .subscribe((allSubProductCategories) => {      
         this.allSubProductCategories$ = allSubProductCategories;
+        this.currentSubProductCategories$ = this.allSubProductCategories$[this.category];
         console.log(this.allSubProductCategories$);
       });
-  }
-
-  setCurrentCategory(): void {
-    this.currentCategory = this.allSubProductCategories$[this.category];
-    Object.keys(this.currentCategory).forEach(key=>console.log(`${key}`));
   }
 
   getProductsByCategory(): void {

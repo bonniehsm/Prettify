@@ -1,6 +1,5 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Injectable } from '@angular/core';
-import { Product } from './product';
 import { Category } from './mock-products';
 
 @Injectable({
@@ -9,7 +8,7 @@ import { Category } from './mock-products';
 
 export class InMemoryDataService implements InMemoryDbService {
   createDb(){
-    const products: Product[] = [
+    const products = [
       {
         id: 1,
         category: Category.Makeup,
@@ -131,8 +130,26 @@ export class InMemoryDataService implements InMemoryDbService {
           options: ["8.5 oz/ 250 mL"],
       },    
     ];
+    
+    const allCategories = {
+      "makeup": {
+          face: ["Foundation", "Concealer", "Powder"],
+          eye: ["Eye Palettes", "Mascara", "Eyeliner"],
+          lip: ["Lipstick", "Lip gloss", "Lip Liner"],
+          cheek: ["Blush", "Bronzer"],
+      },
+      "skincare": {
+          moisturizers: ["Moisturizers", "Night Creams", "Face Oils"],
+          cleansers: ["Face Wash & Cleansers", "Exfoliators", "Makeup Removers"],
+          treatments: ["Face Serums", "Blemish & Acne Treatments"],          
+      },
+      "hair": {
+          "Shampoo & Conditioner": ["Shampoo", "Conditioner", "Dry Shampoo"] ,
+          "Hair Styling & Treatments": ["Hair Spray", "Hair Oil", "Hair Masks"],  
+      }
+  }
 
-    return {products};
+    return {products, allCategories};
   }
 
 }

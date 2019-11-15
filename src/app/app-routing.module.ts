@@ -8,7 +8,8 @@ const routes: Routes = [
   { path: 'shop/:category', component: ShopComponent },
   { path: 'details/:id', component: ProductDetailComponent },
   /* '**' means to match everything - not just one word but anything that follows it e.g. foo/bar/baz */
-  { path: '**', component: PageNotFoundComponent },
+  //uncomment after home component created 
+  //{ path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

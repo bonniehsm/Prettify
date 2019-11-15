@@ -1,3 +1,6 @@
 <mat-grid-list cols="2">
-    <h3>{{product.name}}</h3>
+    <div *ngIf="product">
+        <h3>{{product.name}}</h3>
+        {{product | json}}
+</div>
 </mat-grid-list>
