@@ -5,8 +5,6 @@ import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Product } from './product';
-import { MOCK_PRODUCTS } from './mock-products';
-import { SubCategories } from './subcategories';
 
 @Injectable({
   providedIn: 'root'
