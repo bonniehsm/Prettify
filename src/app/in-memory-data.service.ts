@@ -1,6 +1,6 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { Injectable } from '@angular/core';
-import { Category } from './mock-products';
+import { Category } from './categories';
 
 @Injectable({
   providedIn: 'root'

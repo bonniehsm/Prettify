@@ -1,3 +1,9 @@
+export enum Category {
+    Makeup = "makeup",
+    Skincare = "skincare",
+    Hair = "hair",
+}
+
 export const SubCategories = {
     "makeup": {
         face: ["Foundation", "Concealer", "Powder"],
