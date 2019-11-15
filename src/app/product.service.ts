@@ -23,18 +23,11 @@ export class ProductService {
   ) { }
 
   getProductsByCategory(category: string): Observable<Product[]> {  
-    /**TODO: add error handling */
     return this.http.get<Product[]>(this.productsUrl)
-    //return of(MOCK_PRODUCTS)
-      .pipe(map( products => products.filter( product => product.category == category )));
-  }
-
-  getSubCategories(category: string): Observable<Object>{
-    return of(SubCategories);
-    /*
-    return this.http.get<Object>(this.allCategoriesUrl)
-      .pipe(map( products => products.filter( product => product.category == category )));
-    */
+      .pipe(
+        map( products => products.filter( product => product.category == category )),
+        catchError(this.handleError<Product[]>(`getProductsByCategory`)),
+      );
   }
 
   getAllCategories(): Observable<Object>{
@@ -44,8 +37,6 @@ export class ProductService {
   }  
 
   getProductById(id: number): Observable<Product>{
-    /**todo: add error handling */
-    //return of(MOCK_PRODUCTS.find(product => product.id === id));
     const url = `${this.productsUrl}/${id}`;
     return this.http.get<Product>(url).pipe(
       catchError(this.handleError<Product>(`getProduct By Id=${id}`))
