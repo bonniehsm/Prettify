@@ -1,6 +1,6 @@
-<div class="shop-sidenav" style="height: 100vh;">
-    <mat-sidenav-container>
-        <mat-sidenav mode="side" opened>
+<div class="shop-sidenav">
+    <mat-sidenav-container class="shop-sidenav--container">
+        <mat-sidenav class="shop-sidenav--categories" mode="side" opened>
             <div *ngIf="allSubProductCategories$">
                 <h2>{{category | uppercase}}</h2>
                 <div *ngFor="let subCategory of allSubProductCategories$[category] | keyvalue">
@@ -13,9 +13,9 @@
                 </div>
             </div>
         </mat-sidenav>
-        <mat-sidenav-content class="products-list-container">
-            <div *ngIf="products$">               
-                <mat-grid-list cols="4" rowHeight="4:3">
+        <mat-sidenav-content class="sidenav-content--container">
+            <div *ngIf="products$">            
+                <mat-grid-list class="products-grid-list" cols="5" rowHeight="200px">
                     <mat-grid-tile 
                         *ngFor="let product of products$"
                         [rowspan]="1">

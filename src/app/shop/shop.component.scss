@@ -1,9 +1,22 @@
-.shop-sidenav {
-    mat-sidenav {
-        min-width: 170px;
-        padding: 5px 10px;
-        text-align: center;      
-    }
+.shop-sidenav--container {
+    height: 100vh;
+    padding-top: 75x;
+}
+
+.shop-sidenav--categories {
+    width: 170px;
+    padding: 2px 10px;
+    text-align: center;      
+}
+
+
+.products-grid-list {
+    margin: 10px 8px; 
+}
+
+.product-card {
+    height: 200px;
+    margin: 10px;
 }
 
 .product-card--image {
