@@ -37,9 +37,14 @@
 
 <mat-toolbar>
     <mat-toolbar-row>
-      <button mat-icon-button>
+      <button mat-icon-button [matMenuTriggerFor]="accountMenu">
         <mat-icon>menu</mat-icon>
       </button>
+      <mat-menu #accountMenu="matMenu">
+          <button mat-menu-item>Account</button>
+          <button mat-menu-item>Purchase History</button>
+          <button mat-menu-item>Settings</button>
+      </mat-menu>
       <!--div>
         <a mat-button routerLink="/">Prettify</a>
         <a mat-button routerLink="/shop/makeup">Makeup</a>
