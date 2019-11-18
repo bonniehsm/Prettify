@@ -7,6 +7,8 @@ import {
   MatMenuModule,
   MatTabsModule,
   MatListModule,
+  MatToolbarModule,
+  MatButtonModule,
 } from '@angular/material';
 import { AppRoutingModule } from './../app-routing.module';
 import { SubmenuComponent } from './submenu/submenu.component';
@@ -21,6 +23,8 @@ import { SubmenuComponent } from './submenu/submenu.component';
     MatMenuModule,
     MatTabsModule,
     AppRoutingModule,
+    MatToolbarModule,
+    MatButtonModule,
   ],
   exports: [
     TopMenuNavigationComponent,

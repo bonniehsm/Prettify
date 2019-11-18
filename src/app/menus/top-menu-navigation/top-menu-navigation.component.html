@@ -20,7 +20,7 @@
 </mat-card>
 
 <!-- Desktop View -->
-<nav mat-tab-nav-bar class="desktop-topnav-bar">
+<!--nav mat-tab-nav-bar class="desktop-topnav-bar">
     <a mat-tab-link routerLink="/">
         {{brand | uppercase}}
     </a>    
@@ -33,5 +33,32 @@
     <a mat-tab-link routerLink="/shop/hair" class="topnav-bar--hair">
         Hair
     </a>
-</nav>
+</nav-->
+
+<mat-toolbar>
+    <mat-toolbar-row>
+      <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+      <!--div>
+        <a mat-button routerLink="/">Prettify</a>
+        <a mat-button routerLink="/shop/makeup">Makeup</a>
+        <a mat-button routerLink="/shop/skincare">Skincare</a>
+        <a mat-button routerLink="/shop/hair">Hair</a>
+      </div-->
+        <nav mat-tab-nav-bar class="desktop-topnav-bar">
+            <a mat-tab-link routerLink="/">
+                {{brand | uppercase}}
+            </a>    
+            <a mat-tab-link routerLink="/shop/makeup" class="topnav-bar--makeup">
+                Makeup
+            </a>
+            <a mat-tab-link routerLink="/shop/skincare" class="topnav-bar--skinare">
+                Skincare
+            </a>
+            <a mat-tab-link routerLink="/shop/hair" class="topnav-bar--hair">
+                Hair
+            </a>
+        </nav>      
+    </mat-toolbar-row>
 <app-submenu></app-submenu>
