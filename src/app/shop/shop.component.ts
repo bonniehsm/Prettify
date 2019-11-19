@@ -14,6 +14,7 @@ export class ShopComponent implements OnInit {
   products$: Product[];
   category: string;
   allSubProductCategories$: Object;
+  imageAltMessage: string;
 
   constructor(
     private productService: ProductService,
@@ -34,7 +35,7 @@ export class ShopComponent implements OnInit {
   }
 
   /**
-   * This methods gets all categories and subcategories
+   * This methods gets all categories and subcategories for the side navigation.
    */
   getAllCategories(): void {
     this.productService.getAllCategories()

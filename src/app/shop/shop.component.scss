@@ -1,5 +1,10 @@
+h6 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 .shop-sidenav--container {
-    height: 100vh;
+    height: 100%;
     padding-top: 75x;
 }
 
@@ -9,17 +14,30 @@
     text-align: center;      
 }
 
-
-.products-grid-list {
+.products-list--wrapper {
+    display: flex;
+    flex-wrap: wrap;
     margin: 10px 8px; 
+    .product-tile-link {
+        position: relative;
+    }
+    .product-card--container {
+        max-width: 300px;
+
+        .product-card--image {
+            width: 200px;
+        }
+    }
 }
 
+.product-tile-link {
+    position: absolute;
+    top: 0;
+}
+/*
 .product-card {
-    height: 200px;
+
     margin: 10px;
 }
 
-.product-card--image {
-    /*background-image: url();*/
-    background-size: cover;
-}
+*/

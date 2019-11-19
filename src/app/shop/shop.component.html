@@ -2,9 +2,9 @@
     <mat-sidenav-container class="shop-sidenav--container">
         <mat-sidenav class="shop-sidenav--categories" mode="side" opened>
             <div *ngIf="allSubProductCategories$">
-                <h2>{{category | uppercase}}</h2>
+                <h3>{{category | uppercase}}</h3>
                 <div *ngFor="let subCategory of allSubProductCategories$[category] | keyvalue">
-                    <h3>{{subCategory.key | uppercase}}</h3>
+                    <h4>{{subCategory.key | uppercase}}</h4>
                     <div *ngFor="let group of subCategory.value">
                         <a [title]="group" href="#">
                             {{group}}
@@ -14,37 +14,35 @@
             </div>
         </mat-sidenav>
         <mat-sidenav-content class="sidenav-content--container">
-            <div *ngIf="products$">            
-                <mat-grid-list class="products-grid-list" cols="5" rowHeight="200px">
-                    <mat-grid-tile 
-                        *ngFor="let product of products$"
-                        [rowspan]="1">
-                        <a routerLink="/details/{{product.id}}">
-                            <mat-card class="product-card">
-                                <mat-card-header>
-                                    <mat-card-title>{{product.name}}</mat-card-title>
-                                </mat-card-header>
-                                <!--img mat-card-image class="product-card--image" src="" /-->
-                                <mat-card-content>
-                                    <p *ngIf="product.price.length > 1">
-                                        <span> {{ product.price[(product.price.length-1)] | currency}} - </span>                                        
-                                        <span> {{ product.price[0] | currency}} </span>
-                                    </p>
-                                    <p *ngIf="product.price.length == 1">
-                                        <span> {{product.price[0] | currency}}</span>
-                                    </p>
-                                </mat-card-content>
+            <div *ngIf="products$" class="products-list--wrapper">            
+                <div *ngFor="let product of products$" class="product-card--container">
+                    <a class="product-tile-link" routerLink="/details/{{product.id}}">
+                        <mat-card class="product-card">
+                            <mat-card-header>
+                                <mat-card-title>
+                                    <h6>{{product.name}}</h6>
+                                </mat-card-title>
+                            </mat-card-header>
+                            <img mat-card-image class="product-card--image" src="./../../assets/products.jpg" alt={{product.name}}/>
+                            <mat-card-content>
+                                <p *ngIf="product.price.length > 1">
+                                    <span> {{ product.price[(product.price.length-1)] | currency}} - </span>                                        
+                                    <span> {{ product.price[0] | currency}} </span>
+                                </p>
+                                <p *ngIf="product.price.length == 1">
+                                    <span> {{product.price[0] | currency}}</span>
+                                </p>
                                 <mat-card-actions>
-                                    <button mat-button>
-                                        <!-- TO DO: add functionality for wishlist-->
-                                        <mat-icon>favorite_border</mat-icon>
-                                        <mat-icon>favorite</mat-icon>
-                                    </button>
+                                        <button mat-button>
+                                            <!-- TO DO: add functionality for wishlist-->
+                                            <mat-icon>favorite_border</mat-icon>
+                                            <mat-icon>favorite</mat-icon>
+                                        </button>
                                 </mat-card-actions>
-                            </mat-card>  
-                        </a>      
-                    </mat-grid-tile>
-                </mat-grid-list>
+                            </mat-card-content>
+                        </mat-card>  
+                    </a>      
+                </div>
             </div>
         </mat-sidenav-content>
     </mat-sidenav-container>
