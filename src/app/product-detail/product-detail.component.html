@@ -3,18 +3,26 @@
     <div class="product-detail--overall">
         <h2>{{product.name}}</h2>
         <!--p>{{product | json}}</p-->
-        <!-- Options -->
-        <select>
-            <option *ngFor="let option of product.options">{{option}}</option>
-        </select>
-        <!-- Prices -->
-
-        <!-- Buttons - Add to 1) Cart and 2) Wishlist -->
-        <div class="product-actions">
-            <button mat-button><mat-icon>add_shopping_cart</mat-icon></button>
-            <button mat-button><mat-icon>favorite_border</mat-icon></button>
-        </div>
-        <!--mat-icon>favorite</mat-icon-->
+        <form #productForm="ngForm">
+            <!-- Options -->
+            <select>
+                <option *ngFor="let option of product.options" [value]="option">
+                    {{option}}
+                </option>
+            </select>
+            <!-- Prices -->
+            <p *ngIf="model">{{ model | json }}</p>
+            <!-- Buttons: 1) Cart and 2) Wishlist -->
+            <div class="product-actions">
+                <button mat-button (click)="addToCart()">
+                    <mat-icon>add_shopping_cart</mat-icon>
+                </button>
+                <button mat-button (click)="toggleWishList()">
+                    <mat-icon *ngIf="!onWishList">favorite_border</mat-icon>
+                    <mat-icon *ngIf="onWishList">favorite</mat-icon>
+                </button>
+            </div>
+        </form>
     </div>
 
     <!-- TODO: reference product image's URL rather than using the default image -->

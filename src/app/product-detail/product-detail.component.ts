@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { CartItem } from '../cart-item';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -12,10 +13,14 @@ import { CartService } from '../cart.service';
 })
 export class ProductDetailComponent implements OnInit {
   product: Product;
+  price: number;
+  model: CartItem;
+  onWishList = false;  
 
   constructor( 
     private productService: ProductService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    ) { }
 
   ngOnInit() {
     this.getProduct();
@@ -24,7 +29,18 @@ export class ProductDetailComponent implements OnInit {
   getProduct(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.productService.getProductById(id)
-      .subscribe(product => this.product = product);
+      .subscribe((product) => {
+        this.product = product;
+        this.model = new CartItem(product.id, 1, product.options[0], product.price[0]);
+      });
+  }
+
+  toggleWishList(): void {
+    this.onWishList = !this.onWishList;
+  }
+
+  addToCart(): void {
+
   }
 
 }
