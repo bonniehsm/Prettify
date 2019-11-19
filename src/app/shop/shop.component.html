@@ -16,32 +16,32 @@
         <mat-sidenav-content class="sidenav-content--container">
             <div *ngIf="products$" class="products-list--wrapper">            
                 <div *ngFor="let product of products$" class="product-card--container">
-                    <a class="product-tile-link" routerLink="/details/{{product.id}}">
-                        <mat-card class="product-card">
-                            <mat-card-header>
+                    <mat-card class="product-card">
+                        <a class="product-tile-link" routerLink="/details/{{product.id}}">
+                            <mat-card-header class="product-card--header">
                                 <mat-card-title>
                                     <h6>{{product.name}}</h6>
                                 </mat-card-title>
                             </mat-card-header>
                             <img mat-card-image class="product-card--image" src="./../../assets/products.jpg" alt={{product.name}}/>
-                            <mat-card-content>
-                                <p *ngIf="product.price.length > 1">
-                                    <span> {{ product.price[(product.price.length-1)] | currency}} - </span>                                        
-                                    <span> {{ product.price[0] | currency}} </span>
-                                </p>
-                                <p *ngIf="product.price.length == 1">
-                                    <span> {{product.price[0] | currency}}</span>
-                                </p>
-                                <mat-card-actions>
-                                        <button mat-button>
-                                            <!-- TO DO: add functionality for wishlist-->
-                                            <mat-icon>favorite_border</mat-icon>
-                                            <mat-icon>favorite</mat-icon>
-                                        </button>
-                                </mat-card-actions>
-                            </mat-card-content>
-                        </mat-card>  
-                    </a>      
+                        </a> 
+                        <mat-card-content class="product-card--content">
+                            <p *ngIf="product.price.length > 1">
+                                <span> {{ product.price[(product.price.length-1)] | currency}} - </span>                                        
+                                <span> {{ product.price[0] | currency}} </span>
+                            </p>
+                            <p *ngIf="product.price.length == 1">
+                                <span> {{product.price[0] | currency}}</span>
+                            </p>
+                            <mat-card-actions>
+                                <button mat-button>
+                                    <!-- TO DO: add functionality for wishlist-->
+                                    <mat-icon>favorite_border</mat-icon>
+                                    <mat-icon>favorite</mat-icon>
+                                </button>
+                            </mat-card-actions>
+                        </mat-card-content>                        
+                    </mat-card>       
                 </div>
             </div>
         </mat-sidenav-content>

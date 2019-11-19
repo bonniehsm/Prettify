@@ -18,26 +18,34 @@ h6 {
     display: flex;
     flex-wrap: wrap;
     margin: 10px 8px; 
-    .product-tile-link {
-        position: relative;
-    }
-    .product-card--container {
-        max-width: 300px;
+    justify-content: space-evenly;
 
+
+
+    .product-card--container {
+        flex: 0 0 270px;
+        margin: 10px 5px;
+
+        .product-tile-link {
+            position: relative;
+        }
+        .product-card--header {
+            justify-content: center;
+        }
         .product-card--image {
             width: 200px;
+            display: block;
+            margin: auto;
         }
+        .product-card--content {
+            padding-top: 8px;
+            display: flex;
+            justify-content: space-around;
+            p {
+                margin-top: 18px;
+            }
+        }   
+
     }
-}
 
-.product-tile-link {
-    position: absolute;
-    top: 0;
 }
-/*
-.product-card {
-
-    margin: 10px;
-}
-
-*/
