@@ -1,9 +1,39 @@
-<mat-grid-list cols="2">
+<div *ngIf="product" class="product-detail-container">
 
-    <div *ngIf="product">
-        <h3>{{product.name}}</h3>
-        {{product | json}}
-    
+    <div class="product-detail--overall">
+        <h2>{{product.name}}</h2>
+        <!--p>{{product | json}}</p-->
+        <!-- Options -->
+        <select>
+            <option *ngFor="let option of product.options">{{option}}</option>
+        </select>
+        <!-- Prices -->
+
+        <!-- Buttons - Add to 1) Cart and 2) Wishlist -->
+        <div class="product-actions">
+            <button mat-button><mat-icon>add_shopping_cart</mat-icon></button>
+            <button mat-button><mat-icon>favorite_border</mat-icon></button>
+        </div>
+        <!--mat-icon>favorite</mat-icon-->
     </div>
 
-</mat-grid-list>
+    <!-- TODO: reference product image's URL rather than using the default image -->
+    <img class="product-detail--image" src="./../../assets/products.jpg" alt={{product.name}}/>
+    <mat-tab-group class="product-detail--more">
+        <mat-tab label="Description">
+            <p>{{product.description}}</p>
+        </mat-tab>   
+        <mat-tab label="Ingredients">
+            <ul class="product-ingredients-list">
+                <li>In sed felis convallis,</li>
+                <li>Cras dignissim lacus,</li>
+                <li>Mauris id lectus,</li>
+                <li>Ut vel porttitor,</li>
+                <li>Nam sed mauris,</li>
+                <li>Placerat velit nec,</li>
+                <li>Consequat turpis</li>
+            </ul>
+        </mat-tab>                 
+    </mat-tab-group>
+</div>
+

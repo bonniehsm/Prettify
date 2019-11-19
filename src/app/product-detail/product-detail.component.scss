@@ -1,0 +1,24 @@
+.product-detail-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(200px, auto);
+    .product-detail--overall {
+        height: 300px;
+        width: 500px;
+        grid-column-start: 2;
+        grid-column-end: 4;
+    }
+    .product-detail--image {
+        max-width: 400px;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+    }    
+    .product-detail--more {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    .product-ingredients-list {
+        list-style-type: square;
+    }
+}
