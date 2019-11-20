@@ -21,6 +21,7 @@ import { AppComponent } from './app.component';
 import { ShopComponent } from './shop/shop.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ShopComponent,
     ProductDetailComponent,
     PageNotFoundComponent,
+    WishlistComponent,
   ],
   imports: [
     BrowserModule,
