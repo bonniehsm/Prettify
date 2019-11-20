@@ -1,17 +1,17 @@
 export class CartItem {
     productId: number;
-    size: string;
+    option: string;
     price: number;
     quantity: number; 
 
    constructor(
     productId: number,
-    size: string,
+    option: string,
     price: number,
     quantity: number = 1,    
    ){
        this.productId = productId;
-       this.size = size;
+       this.option = option;
        this.price = price;
        this.quantity = quantity;       
    }

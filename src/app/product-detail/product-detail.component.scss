@@ -22,3 +22,11 @@
         list-style-type: square;
     }
 }
+
+.selected-option {
+    border: 1px solid steelblue;
+}
+
+.product-option-buttons {
+    display: inline-block;
+}

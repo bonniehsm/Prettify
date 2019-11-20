@@ -4,14 +4,18 @@
         <h2>{{product.name}}</h2>
         <!--p>{{product | json}}</p-->
         <form #productForm="ngForm">
-            <!-- Options -->
-            <select>
-                <option *ngFor="let option of product.options" [value]="option">
-                    {{option}}
-                </option>
-            </select>
-            <!-- Prices -->
-            <p *ngIf="model">{{ model.price | currency }}</p>
+            <!-- Options and Prices-->
+            <div *ngIf="model">
+                <div *ngFor="let option of product.options" class="product-option-buttons">
+                    <button mat-button 
+                        [ngClass]="{ 'selected-option': option === model.option }"
+                        (click)="changeOption($event)"
+                    >
+                        {{option}}
+                    </button>
+                </div>
+                <p>{{ model.price | currency }}</p>
+            </div>
             <!-- Buttons: 1) Cart and 2) Wishlist -->
             <div class="product-actions">
                 <button mat-button (click)="addToCart()">
@@ -27,6 +31,8 @@
 
     <!-- TODO: reference product image's URL rather than using the default image -->
     <img class="product-detail--image" src="./../../assets/products.jpg" alt={{product.name}}/>
+
+    <!-- Product More Info -->
     <mat-tab-group class="product-detail--more">
         <mat-tab label="Description">
             <p>{{product.description}}</p>

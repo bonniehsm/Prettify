@@ -40,6 +40,24 @@ export class ProductDetailComponent implements OnInit {
     this.onWishList = !this.onWishList;
   }
 
+  changeOption(event: any): void {
+    let target = event.target;
+    let option = target.innerText.trim();  
+    //no changes needed  
+    if(option == this.model.option){
+      return;
+    }
+    //change according to the product category
+    if(this.product.category === 'makeup' && this.product.price.length == 1){
+      this.model.option = option;
+      return;
+    }else {
+      const index = this.product.options.indexOf(option);
+      this.model.option = this.product.options[index];
+      this.model.price = this.product.price[index];
+    }
+  }
+
   addToCart(): void {
 
   }
