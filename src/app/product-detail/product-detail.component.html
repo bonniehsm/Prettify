@@ -11,7 +11,7 @@
                 </option>
             </select>
             <!-- Prices -->
-            <p *ngIf="model">{{ model | json }}</p>
+            <p *ngIf="model">{{ model.price | currency }}</p>
             <!-- Buttons: 1) Cart and 2) Wishlist -->
             <div class="product-actions">
                 <button mat-button (click)="addToCart()">

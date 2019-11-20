@@ -31,7 +31,8 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProductById(id)
       .subscribe((product) => {
         this.product = product;
-        this.model = new CartItem(product.id, 1, product.options[0], product.price[0]);
+        //set default model
+        this.model = new CartItem(product.id, product.options[0], product.price[0]);
       });
   }
 
