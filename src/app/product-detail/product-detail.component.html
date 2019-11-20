@@ -2,31 +2,33 @@
 
     <div class="product-detail--overall">
         <h2>{{product.name}}</h2>
-        <!--p>{{product | json}}</p-->
-        <form #productForm="ngForm">
-            <!-- Options and Prices-->
-            <div *ngIf="model">
-                <div *ngFor="let option of product.options" class="product-option-buttons">
-                    <button mat-button 
-                        [ngClass]="{ 'selected-option': option === model.option }"
-                        (click)="changeOption($event)"
-                    >
-                        {{option}}
-                    </button>
-                </div>
-                <p>{{ model.price | currency }}</p>
-            </div>
-            <!-- Buttons: 1) Cart and 2) Wishlist -->
-            <div class="product-actions">
-                <button mat-button (click)="addToCart()">
-                    <mat-icon>add_shopping_cart</mat-icon>
-                </button>
-                <button mat-button (click)="toggleWishList()">
-                    <mat-icon *ngIf="!onWishList">favorite_border</mat-icon>
-                    <mat-icon *ngIf="onWishList">favorite</mat-icon>
+
+        <!-- Options and Prices-->
+        <div *ngIf="model" class="product-options-price">
+            <div *ngFor="let option of product.options" class="product-option-buttons">
+                <button mat-button 
+                    [ngClass]="{ 'selected-option': option === model.option }"
+                    (click)="changeOption($event)"
+                >
+                    {{option}}
                 </button>
             </div>
-        </form>
+            <p class="product-price">{{ model.price | currency }}</p>
+        </div>
+
+        <!-- Buttons: 1) Cart and 2) Wishlist -->
+        <div class="product-actions">
+            <button mat-raised-button color="primary" (click)="addToCart()">
+                <mat-icon>add_shopping_cart</mat-icon> Add to Cart
+            </button>
+            <button mat-raised-button *ngIf="!onWishList" (click)="toggleWishList()">
+                <mat-icon>favorite_border</mat-icon> Add to Wishlist
+            </button>
+            <button mat-raised-button *ngIf="onWishList" (click)="toggleWishList()">
+                <mat-icon>favorite</mat-icon> Remove from Wishlist
+            </button>            
+        </div>
+
     </div>
 
     <!-- TODO: reference product image's URL rather than using the default image -->
@@ -35,18 +37,36 @@
     <!-- Product More Info -->
     <mat-tab-group class="product-detail--more">
         <mat-tab label="Description">
-            <p>{{product.description}}</p>
-        </mat-tab>   
+            <div class="product-detail-content">
+                <p>{{product.description}}</p>
+            </div>
+        </mat-tab> 
+        <mat-tab label="How to Use">
+            <div class="product-detail-content">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                    Integer maximus aliquet mauris sit amet accumsan. 
+                    Nullam varius odio dictum tristique rutrum. Sed eu ante vel justo pretium convallis in ut dui. 
+                    Suspendisse eget tristique nibh.
+                </p>
+                <p>
+                    Mauris vel egestas est. Nullam lacinia nisi ligula. Sed dui ante, rutrum at vulputate a, sodales nec erat. 
+                    Etiam ac pretium ante. Sed tempor ligula nec tortor condimentum, at tempor ligula hendrerit.
+                </p>
+            </div>
+        </mat-tab>  
         <mat-tab label="Ingredients">
-            <ul class="product-ingredients-list">
-                <li>In sed felis convallis,</li>
-                <li>Cras dignissim lacus,</li>
-                <li>Mauris id lectus,</li>
-                <li>Ut vel porttitor,</li>
-                <li>Nam sed mauris,</li>
-                <li>Placerat velit nec,</li>
-                <li>Consequat turpis</li>
-            </ul>
+            <div class="product-detail-content">
+                <ul class="product-ingredients-list">
+                    <li>In sed felis convallis,</li>
+                    <li>Cras dignissim lacus,</li>
+                    <li>Mauris id lectus,</li>
+                    <li>Ut vel porttitor,</li>
+                    <li>Nam sed mauris,</li>
+                    <li>Placerat velit nec,</li>
+                    <li>Consequat turpis</li>
+                </ul>
+            </div>
         </mat-tab>                 
     </mat-tab-group>
 </div>
