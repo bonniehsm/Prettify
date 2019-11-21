@@ -17,7 +17,9 @@ export class ProductDetailComponent implements OnInit {
   product: Product;
   price: number;
   model: CartItem;
-  onWishList = false;  
+  onWishlist = false;  
+  //TEST
+  wishlist: WishlistItem[];
 
   constructor( 
     private productService: ProductService,
@@ -27,9 +29,23 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getProduct();
-    //test
-    const testItem = new WishlistItem(1, "123", 456);
-    this.wishlistService.addToWishlist(testItem);
+    //console.log(this.wishlistService.getWishlistItems());
+    //if(this.wishlistService.getWishlistItems()){
+      this.checkIfOnWishlist();
+    //}
+  }
+
+  /* TEST - get wishlist*/
+  getWishlist(): void {
+    this.wishlist = this.wishlistService.getWishlistItems();
+  }
+
+  checkIfOnWishlist(): void {
+    console.log(`check if on wishlist`);
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.onWishlist = this.wishlistService.checkWishlist(id);
+    //console.log(this.onWishlist);
+    console.log(`${this.wishlistService.checkWishlist(id)}`);
   }
 
   getProduct(): void {
@@ -42,8 +58,16 @@ export class ProductDetailComponent implements OnInit {
       });
   }
 
-  toggleWishList(): void {
-    this.onWishList = !this.onWishList;
+  toggleWishlist(): void {
+    let wishlistItem = new WishlistItem(this.model.id, this.model.option, this.model.price);
+    if(this.onWishlist){
+      //remove from wishlist
+      this.wishlistService.removeFromWishlist(wishlistItem);
+    }else{
+      //add to wishlist
+      this.wishlistService.addToWishlist(wishlistItem);
+    }
+    this.onWishlist = !this.onWishlist;    
   }
 
   changeOption(event: any): void {
