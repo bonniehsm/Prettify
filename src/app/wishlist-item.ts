@@ -1,21 +1,23 @@
 import { MarkedItem } from './marked-item';
 
-class WishlistItem implements MarkedItem {
+export class WishlistItem implements MarkedItem {
     id: number;
     option: string;
     price: number;
+    image?: string;
+
     constructor(
         id: number,
         option: string,
         price: number,
-    ){}
-    addProduct(item: MarkedItem) {
-
+        image?: string,
+    ){
+        this.id = id;
+        this.option = option;
+        this.price = price;
+        if(image !== null){
+            this.image = image;
+        }
     }
-    removeProduct(item: MarkedItem) {
 
-    }
-    toggleWishlist(){
-
-    }
 }

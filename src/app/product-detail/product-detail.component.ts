@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { WishlistItem } from '../wishlist-item';
+import { WishlistService } from '../wishlist.service';
 import { CartItem } from '../cart-item';
 import { CartService } from '../cart.service';
 
@@ -20,10 +22,14 @@ export class ProductDetailComponent implements OnInit {
   constructor( 
     private productService: ProductService,
     private route: ActivatedRoute,
+    private wishlistService: WishlistService,
     ) { }
 
   ngOnInit() {
     this.getProduct();
+    //test
+    const testItem = new WishlistItem(1, "123", 456);
+    this.wishlistService.addToWishlist(testItem);
   }
 
   getProduct(): void {
@@ -31,7 +37,7 @@ export class ProductDetailComponent implements OnInit {
     this.productService.getProductById(id)
       .subscribe((product) => {
         this.product = product;
-        //set default model
+        //set default cartItem
         this.model = new CartItem(product.id, product.options[0], product.price[0]);
       });
   }
