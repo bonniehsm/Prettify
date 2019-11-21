@@ -12,8 +12,10 @@
 
 <div *ngIf="items">
     <div *ngFor="let item of items" style="border: 1px dashed navy">
-        <p>{{item.id}}</p>
-        <p>{{item.option}}</p>
-        <p>{{item.price}}</p>
+        <a routerLink="/details/{{item.id}}">
+            <h4>{{item.name}}</h4>
+            <p>{{item.option}}</p>
+            <p>{{item.price | currency }}</p>
+        </a>
     </div>
 </div>
