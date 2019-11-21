@@ -8,12 +8,9 @@ import { WishlistService } from './../wishlist.service';
   styleUrls: ['./wishlist.component.scss']
 })
 export class WishlistComponent implements OnInit {
-  private items: WishlistItem[];
-  test: any;
-  testAddItem: WishlistItem;
+  items: WishlistItem[];
 
   constructor(private wishlistService: WishlistService) { 
-    this.testAddItem = new WishlistItem(99, "option", 50);
   }
 
   ngOnInit() {
@@ -21,11 +18,7 @@ export class WishlistComponent implements OnInit {
   }
 
   getWishlist(): void {
-    this.test = this.wishlistService.getWishlistItems();
-  }
-
-  removeFromWishlist(): void {
-
+    this.items = this.wishlistService.getWishlistItems();
   }
 
   clearWishlist(): void {
@@ -33,13 +26,5 @@ export class WishlistComponent implements OnInit {
     //refresh list
     this.getWishlist();
   }
-
-  //TEST**
-  addToWishlist(item: WishlistItem): void {
-    this.wishlistService.addToWishlist(item);
-    //refresh list
-    this.getWishlist();
-  }
-
 
 }

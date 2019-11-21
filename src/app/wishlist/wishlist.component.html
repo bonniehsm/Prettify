@@ -7,5 +7,13 @@
 
 <div>
     Test Get Wishlist Functionality: <button (click)="getWishlist()">Get Wishlist</button>
-    {{ test | json }}
+    {{ items | json }}
+</div>
+
+<div *ngIf="items">
+    <div *ngFor="let item of items" style="border: 1px dashed navy">
+        <p>{{item.id}}</p>
+        <p>{{item.option}}</p>
+        <p>{{item.price}}</p>
+    </div>
 </div>

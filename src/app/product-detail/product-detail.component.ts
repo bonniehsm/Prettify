@@ -54,12 +54,12 @@ export class ProductDetailComponent implements OnInit {
       .subscribe((product) => {
         this.product = product;
         //set default cartItem
-        this.model = new CartItem(product.id, product.options[0], product.price[0]);
+        this.model = new CartItem(product.id, product.name, product.options[0], product.price[0]);
       });
   }
 
   toggleWishlist(): void {
-    let wishlistItem = new WishlistItem(this.model.id, this.model.option, this.model.price);
+    let wishlistItem = new WishlistItem(this.model.id, this.product.name, this.model.option, this.model.price);
     if(this.onWishlist){
       //remove from wishlist
       this.wishlistService.removeFromWishlist(wishlistItem);

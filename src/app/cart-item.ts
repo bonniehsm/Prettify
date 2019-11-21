@@ -2,6 +2,7 @@ import { MarkedItem } from './marked-item';
 
 export class CartItem implements MarkedItem{
     id: number;
+    name: string;
     option: string;
     price: number;
     quantity: number; 
@@ -9,12 +10,14 @@ export class CartItem implements MarkedItem{
 
    constructor(
     id: number,
+    name: string,
     option: string,
     price: number,
     quantity: number = 1,
     image?: string,    
    ){
        this.id = id;
+       this.name = name;
        this.option = option;
        this.price = price;
        this.quantity = quantity;       
