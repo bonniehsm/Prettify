@@ -1,18 +1,28 @@
-export class CartItem {
-    productId: number;
+import { MarkedItem } from './marked-item';
+
+export class CartItem implements MarkedItem{
+    id: number;
     option: string;
     price: number;
     quantity: number; 
 
    constructor(
-    productId: number,
+    id: number,
     option: string,
     price: number,
     quantity: number = 1,    
    ){
-       this.productId = productId;
-       this.option = option;
-       this.price = price;
-       this.quantity = quantity;       
+    //    this.id = id;
+    //    this.option = option;
+    //    this.price = price;
+    //    this.quantity = quantity;       
+   }
+
+   addProduct(item: CartItem): void {
+
+   }
+
+   removeProduct(item: CartItem): void {
+
    }
 }
