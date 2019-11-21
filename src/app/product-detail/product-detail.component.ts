@@ -29,10 +29,7 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit() {
     this.getProduct();
-    //console.log(this.wishlistService.getWishlistItems());
-    //if(this.wishlistService.getWishlistItems()){
-      this.checkIfOnWishlist();
-    //}
+    this.checkIfOnWishlist();
   }
 
   /* TEST - get wishlist*/
@@ -41,11 +38,8 @@ export class ProductDetailComponent implements OnInit {
   }
 
   checkIfOnWishlist(): void {
-    console.log(`check if on wishlist`);
     const id = +this.route.snapshot.paramMap.get('id');
-    this.onWishlist = this.wishlistService.checkWishlist(id);
-    //console.log(this.onWishlist);
-    console.log(`${this.wishlistService.checkWishlist(id)}`);
+    this.onWishlist = this.wishlistService.checkWishlistById(id);
   }
 
   getProduct(): void {

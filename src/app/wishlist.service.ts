@@ -12,40 +12,33 @@ export class WishlistService {
   constructor() { }
 
   //check if storage object created
+  //  returns true if storage created for wishlsit
+  //  otherwise, returns false
   checkForWishlist(): boolean {
     if(this.wishlistLocalStorage.getItem(this.key)){
-      return false;
+      return true;
     }
-    return true;
+    return false;
   }
 
   //create wishlist object in localStorage
   createWishlistStorage(): void {
-    //this.wishlist = [];
-    let wishlist: WishlistItem[];
+    let wishlist: WishlistItem[] = [];
     this.wishlistLocalStorage.setItem(this.key, JSON.stringify(wishlist));
   }
 
   //add item wishlist
-  addToWishlist(item: WishlistItem): void {
-    let wishlist = this.getWishlistItems();
-    /** TEST */
-    console.log(`wishlist-service = addToWishlist`);
-    console.log(`item to be added--> ${JSON.stringify(item)}`);
-    console.log(`${this.wishlistLocalStorage.getItem(this.key)}`);    
-    
+  addToWishlist(item: WishlistItem): void {   
     if(!this.checkForWishlist()){
       this.createWishlistStorage();
-    }
-    //this.wishlist.push(item);
-    //localStorage.setItem(this.key, JSON.stringify(this.wishlist));    
+    }  
+    let wishlist = this.getWishlistItems();    
     wishlist.push(item);
     localStorage.setItem(this.key, JSON.stringify(wishlist));
   }
 
   //remove from wishlist
   removeFromWishlist(removeItem: WishlistItem): void {
-    //this.wishlist = this.wishlist.filter(item => item.id != removeItem.id);
     let wishlist = this.getWishlistItems();
     let newWishlist = wishlist.filter(item => item.id != removeItem.id);
     localStorage.setItem(this.key, JSON.stringify(newWishlist));
@@ -53,7 +46,14 @@ export class WishlistService {
   
   //get wishlist
   getWishlistItems(): WishlistItem[] {
-    return JSON.parse(localStorage.getItem(this.key));
+    let wishlist: WishlistItem[];
+    try{
+      wishlist = JSON.parse(localStorage.getItem(this.key));
+    }catch(error){
+      //console.log(error);
+      wishlist = [];
+    }
+    return wishlist;
   }
 
   //clear wishlist
@@ -63,22 +63,18 @@ export class WishlistService {
   }
 
   //check if item exists on the wishlist
-  checkWishlist(id: number): boolean {
-    console.log(`check wishlist`);
-    //console.log(this.wishlist);
+  checkWishlistById(id: number): boolean {
     let wishlist = this.getWishlistItems();
-    console.log(wishlist);
     let onWishlist = false;
     try{
-      //this.wishlist.forEach(item => {
       wishlist.forEach(item => {
         if(item.id === id){
-          console.log(`on wishlist`);
+          // console.log(`on wishlist`);
           onWishlist =  true;
         }
       });
     }catch(error){
-      console.log(`error: ${error}`);
+      // console.log(`error: ${error}`);
     }
     return onWishlist;
   }
