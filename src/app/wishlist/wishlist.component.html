@@ -1,21 +1,21 @@
 <h2>Wishlist</h2>
 
-<div>
-    <button (click)="clearWishlist()">Clear Wishlist</button>
-</div>
-
-
-<div>
-    Test Get Wishlist Functionality: <button (click)="getWishlist()">Get Wishlist</button>
-    {{ items | json }}
-</div>
-
-<div *ngIf="items">
-    <div *ngFor="let item of items" style="border: 1px dashed navy">
-        <a routerLink="/details/{{item.id}}">
-            <h4>{{item.name}}</h4>
-            <p>{{item.option}}</p>
-            <p>{{item.price | currency }}</p>
-        </a>
+<!-- TEST -->
+<!--div>
+    <div>
+        <button (click)="clearWishlist()">Clear Wishlist</button>
     </div>
-</div>
+    <div>
+        Test Get Wishlist Functionality: <button (click)="getWishlist()">Get Wishlist</button>
+        {{ items | json }}
+    </div>    
+</div-->
+
+
+<mat-nav-list *ngIf="items" class="wishlist-all-items">
+    <a mat-list-item *ngFor="let item of items" class="wishlist-item" routerLink="/details/{{item.id}}">
+        <h4 matLine>{{item.name}}</h4>
+        <p matLine>{{item.option}}</p>
+        <p>{{item.price | currency }}</p>    
+    </a>
+</mat-nav-list>
