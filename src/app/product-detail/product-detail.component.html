@@ -5,20 +5,22 @@
 
         <!-- Options and Prices-->
         <div *ngIf="model" class="product-options-price">
-            <div *ngFor="let option of product.options" class="product-option-buttons">
-                <button mat-button 
+            <mat-action-list dense *ngFor="let option of product.options" class="product-option-list">
+                <button mat-list-item
                     [ngClass]="{ 'selected-option': option === model.option }"
                     (click)="changeOption($event)"
                 >
                     {{option}}
                 </button>
-            </div>
+            </mat-action-list>
             <p class="product-price">{{ model.price | currency }}</p>
         </div>
 
-        <div>WISHLIST TEST <button (click)="getWishlist()">get wishlist</button>
+        <!-- WISHLIST TEST -->
+        <!--div>
+            <button (click)="getWishlist()">get wishlist</button>
             <p>{{wishlist | json}}</p>
-        </div>
+        </div-->
 
         <!-- Buttons: 1) Cart and 2) Wishlist -->
         <div class="product-actions">
