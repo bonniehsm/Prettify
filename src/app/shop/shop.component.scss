@@ -42,7 +42,29 @@ h6 {
                 margin-top: 18px;
             }
         }   
-
     }
 
+}
+
+
+@media (max-width: 768px) {
+    .shop-sidenav--categories {
+        display: none;
+    }
+    .mobile-subcategoriesToolbar {
+        display: block;
+    }
+    .mobile-subcategoriesMenu {
+        padding-left: 9px;
+        padding-right: 9px;
+    }    
+}
+
+@media (min-width: 769px) {
+    .mobile-subcategoriesToolbar {
+        display: none;
+    }
+    .shop-sidenav--categories {
+        display: block;
+    }    
 }

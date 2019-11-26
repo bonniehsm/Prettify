@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Product } from '../product';
 import { ProductService } from '../product.service';
+import { MatSidenav } from '@angular/material';
 
 @Component({
   selector: 'app-shop',
@@ -14,7 +15,6 @@ export class ShopComponent implements OnInit {
   products$: Product[];
   category: string;
   allSubProductCategories$: Object;
-  imageAltMessage: string;
 
   constructor(
     private productService: ProductService,

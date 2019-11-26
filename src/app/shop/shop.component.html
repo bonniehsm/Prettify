@@ -1,6 +1,27 @@
 <div class="shop-sidenav">
+    <mat-toolbar class="mobile-subcategoriesToolbar">
+        <mat-toolbar-row>
+            <button mat-raised-button [matMenuTriggerFor]="subcategoriesMenu">
+                Shop by Categories
+            </button> 
+            <a class="mobile-topnav-brand" routerLink="/">{{brand | uppercase}}</a>            
+            <mat-menu #subcategoriesMenu="matMenu" class="mobile-subcategoriesMenu">
+                <div *ngFor="let subCategory of allSubProductCategories$[category] | keyvalue"
+                    class="mobile-subcategoriesMenu">
+                    <h4>{{subCategory.key | uppercase}}</h4>
+                    <ul>
+                    <li *ngFor="let group of subCategory.value">
+                        <a [title]="group" href="#">
+                            {{group}}
+                        </a>
+                    </li>              
+                    </ul>      
+                </div>
+            </mat-menu>
+        </mat-toolbar-row>
+    </mat-toolbar>
     <mat-sidenav-container class="shop-sidenav--container">
-        <mat-sidenav class="shop-sidenav--categories" mode="side" opened>
+        <mat-sidenav #categoriesSidenav class="shop-sidenav--categories" mode="side" opened>
             <div *ngIf="allSubProductCategories$">
                 <h3>{{category | uppercase}}</h3>
                 <div *ngFor="let subCategory of allSubProductCategories$[category] | keyvalue">
@@ -37,7 +58,7 @@
                                 <button mat-button>
                                     <!-- TO DO: add functionality for wishlist-->
                                     <mat-icon>favorite_border</mat-icon>
-                                    <mat-icon>favorite</mat-icon>
+                                    <!--mat-icon>favorite</mat-icon-->
                                 </button>
                             </mat-card-actions>
                         </mat-card-content>                        

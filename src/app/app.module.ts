@@ -12,6 +12,7 @@ import {
   MatGridListModule,
   MatSidenavModule,
   MatListModule,
+  MatToolbarModule,
 } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -52,6 +53,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     MatGridListModule,
     MatSidenavModule,
     MatListModule,
+    MatToolbarModule,
     AppRoutingModule,    
   ],
   providers: [],
