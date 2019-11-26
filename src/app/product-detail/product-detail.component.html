@@ -24,13 +24,13 @@
 
         <!-- Buttons: 1) Cart and 2) Wishlist -->
         <div class="product-actions">
-            <button mat-raised-button color="primary" (click)="addToCart()">
+            <button class="product-action-button" mat-raised-button color="primary" (click)="addToCart()">
                 <mat-icon>add_shopping_cart</mat-icon> Add to Cart
             </button>
-            <button mat-raised-button *ngIf="!onWishlist" (click)="toggleWishlist()">
+            <button class="product-action-button" mat-raised-button *ngIf="!onWishlist" (click)="toggleWishlist()">
                 <mat-icon>favorite_border</mat-icon> Add to Wishlist
             </button>
-            <button mat-raised-button *ngIf="onWishlist" (click)="toggleWishlist()">
+            <button class="product-action-button" mat-raised-button *ngIf="onWishlist" (click)="toggleWishlist()">
                 <mat-icon>favorite</mat-icon> Remove from Wishlist
             </button>            
         </div>
