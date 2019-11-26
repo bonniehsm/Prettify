@@ -1,22 +1,20 @@
-.topnav-bar--makeup{
+@import '~@angular/material/theming';
 
-}
+@mixin desktop-topnav($theme) {
+    $primary: map-get($theme, primary);
 
-.topnav-submenu--makeup {
-    display: none;
-}
-
-.topnav-submenu--skincare {
-    display: none;
-}
-
-.topnav-submenu--hair {
-    display: none;
+    .top-nav-brand { 
+        color: mat-color($primary); 
+        opacity: 1;
+    }
 }
 
 /* Top Menu Navigation */
 .mobile-topnav-bar {
     display: none;
+    .top-nav-brand {
+        display: inline-block;
+    }
     .mobile-topnav-brand {
         margin-left: 5%;
     }    
@@ -24,6 +22,9 @@
 
 .desktop-topnav-bar {
     display: block;
+    a:first-of-type {
+        opacity: 1;
+    }
 }
 
 .fill-remaining-space {
@@ -32,10 +33,7 @@
 
 /** Media Queries **/
 
-$bp-tablet: 959px;
-$bp-mobile: 870px;
-
-@media (max-width: $bp-mobile){
+@media (max-width: 870px){
     .mobile-topnav-bar {
         display: block;
         .mobile-topnav-brand {

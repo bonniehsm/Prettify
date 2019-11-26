@@ -3,7 +3,7 @@
       <!-- Desktop View -->
         <nav mat-tab-nav-bar class="desktop-topnav-bar">
             <a mat-tab-link routerLink="/">
-                {{brand | uppercase}}
+                <h4 class="top-nav-brand">{{brand | uppercase}}</h4>
             </a>    
             <a mat-tab-link routerLink="/shop/makeup" class="topnav-bar--makeup">
                 Makeup
@@ -23,7 +23,9 @@
             <button mat-raised-button color="primary" [matMenuTriggerFor]="pageMenu">
                 <mat-icon aria-label="Shopping Menu Button">menu</mat-icon>
             </button> 
-            <a class="mobile-topnav-brand" routerLink="/">{{brand | uppercase}}</a>            
+            <a class="mobile-topnav-brand" routerLink="/">
+                <h4 class="top-nav-brand">{{brand | uppercase}}</h4>
+            </a>            
             <mat-menu #pageMenu="matMenu">
                 <a mat-menu-item routerLink="/shop/makeup" title="Makeup products">
                     <span class="mdc-list-item__text">Makeup</span>
@@ -41,7 +43,7 @@
         </nav>
         <span class="fill-remaining-space"></span>
         <!-- Account and Settings Menu-->       
-        <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+        <button mat-icon-button [matMenuTriggerFor]="accountMenu" class="menuAccountSettings" color="accent">
             <mat-icon>apps</mat-icon>
         </button>
         <mat-menu #accountMenu="matMenu">

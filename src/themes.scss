@@ -1,0 +1,9 @@
+$theme-primary: mat-palette($mat-pink, 800);
+$theme-accent: mat-palette($mat-teal, 400);
+$theme-error: mat-palette($mat-red, 500);
+
+$main-theme: mat-light-theme(
+    $theme-primary,
+    $theme-accent,
+    $theme-error
+);
