@@ -14,13 +14,12 @@
     display: none;
 }
 
-.mobile-topnav-brand {
-    margin-left: 5%;
-}
-
 /* Top Menu Navigation */
 .mobile-topnav-bar {
     display: none;
+    .mobile-topnav-brand {
+        margin-left: 5%;
+    }    
 }
 
 .desktop-topnav-bar {
@@ -39,6 +38,9 @@ $bp-mobile: 870px;
 @media (max-width: $bp-mobile){
     .mobile-topnav-bar {
         display: block;
+        .mobile-topnav-brand {
+            margin-left: 8%;
+        }
     }
     .desktop-topnav-bar, .tablet-topnav-bar {
         display: none;

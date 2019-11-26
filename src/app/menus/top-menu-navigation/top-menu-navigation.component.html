@@ -23,7 +23,7 @@
             <button mat-raised-button color="primary" [matMenuTriggerFor]="pageMenu">
                 <mat-icon aria-label="Shopping Menu Button">menu</mat-icon>
             </button> 
-            <a routerLink="/">{{brand | uppercase}}</a>            
+            <a class="mobile-topnav-brand" routerLink="/">{{brand | uppercase}}</a>            
             <mat-menu #pageMenu="matMenu">
                 <a mat-menu-item routerLink="/shop/makeup" title="Makeup products">
                     <span class="mdc-list-item__text">Makeup</span>
