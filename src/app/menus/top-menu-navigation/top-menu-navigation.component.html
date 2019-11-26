@@ -1,56 +1,6 @@
-<!-- Mobile Device View -->
-<mat-card class="mobile-topnav-bar">
-    <mat-card-title routerLink="/">{{brand | uppercase}}</mat-card-title>
-    <mat-card-content>
-        <button mat-raised-button color="primary" [matMenuTriggerFor]="pageMenu">
-        <mat-icon aria-label="Shopping Menu Button">more_vert</mat-icon>
-        </button> 
-    </mat-card-content>
-    <mat-menu #pageMenu="matMenu">
-        <a mat-menu-item routerLink="/shop/makeup" title="Makeup products">
-            <span class="mdc-list-item__text">Makeup</span>
-        </a>
-        <a mat-menu-item routerLink="/shop/skincare" title="Skincare products">
-            <span class="mdc-list-item__text">Skincare</span>
-        </a>
-        <a mat-menu-item routerLink="/shop/hair" title="Hair products">
-            <span class="mdc-list-item__text">Hair</span>
-        </a>      
-    </mat-menu>
-</mat-card>
-
-<!-- Desktop View -->
-<!--nav mat-tab-nav-bar class="desktop-topnav-bar">
-    <a mat-tab-link routerLink="/">
-        {{brand | uppercase}}
-    </a>    
-    <a mat-tab-link routerLink="/shop/makeup" class="topnav-bar--makeup">
-        Makeup
-    </a>
-    <a mat-tab-link routerLink="/shop/skincare" class="topnav-bar--skinare">
-        Skincare
-    </a>
-    <a mat-tab-link routerLink="/shop/hair" class="topnav-bar--hair">
-        Hair
-    </a>
-</nav-->
-
 <mat-toolbar>
     <mat-toolbar-row>
-      <button mat-icon-button [matMenuTriggerFor]="accountMenu">
-        <mat-icon>menu</mat-icon>
-      </button>
-      <mat-menu #accountMenu="matMenu">
-          <button mat-menu-item>Account</button>
-          <button mat-menu-item>Purchase History</button>
-          <button mat-menu-item>Settings</button>
-      </mat-menu>
-      <!--div>
-        <a mat-button routerLink="/">Prettify</a>
-        <a mat-button routerLink="/shop/makeup">Makeup</a>
-        <a mat-button routerLink="/shop/skincare">Skincare</a>
-        <a mat-button routerLink="/shop/hair">Hair</a>
-      </div-->
+      <!-- Desktop View -->
         <nav mat-tab-nav-bar class="desktop-topnav-bar">
             <a mat-tab-link routerLink="/">
                 {{brand | uppercase}}
@@ -67,8 +17,39 @@
             <a mat-tab-link routerLink="/wishlist" class="topnav-bar--wishlist">
                 Wishlist
             </a>            
-        </nav>      
+        </nav>
+        <!-- Mobile Device View -->
+        <nav class="mobile-topnav-bar">
+            <button mat-raised-button color="primary" [matMenuTriggerFor]="pageMenu">
+                <mat-icon aria-label="Shopping Menu Button">menu</mat-icon>
+            </button> 
+            <a routerLink="/">{{brand | uppercase}}</a>            
+            <mat-menu #pageMenu="matMenu">
+                <a mat-menu-item routerLink="/shop/makeup" title="Makeup products">
+                    <span class="mdc-list-item__text">Makeup</span>
+                </a>
+                <a mat-menu-item routerLink="/shop/skincare" title="Skincare products">
+                    <span class="mdc-list-item__text">Skincare</span>
+                </a>
+                <a mat-menu-item routerLink="/shop/hair" title="Hair products">
+                    <span class="mdc-list-item__text">Hair</span>
+                </a>      
+                <a mat-menu-item routerLink="/wishlsit" title="Wishlist">
+                    <span class="mdc-list-item__text">Wishlist</span>
+                </a>         
+            </mat-menu>
+        </nav>
+        <span class="fill-remaining-space"></span>
+        <!-- Account and Settings Menu-->       
+        <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+            <mat-icon>apps</mat-icon>
+        </button>
+        <mat-menu #accountMenu="matMenu">
+            <button mat-menu-item>Account</button>
+            <button mat-menu-item>Purchase History</button>
+            <button mat-menu-item>Settings</button>
+        </mat-menu>               
     </mat-toolbar-row>
 </mat-toolbar>
 
-<app-submenu></app-submenu>
+<app-submenu></app-submenu> 
