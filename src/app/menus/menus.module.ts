@@ -9,12 +9,14 @@ import {
   MatListModule,
   MatToolbarModule,
   MatButtonModule,
+  MatSidenavModule,
 } from '@angular/material';
 import { AppRoutingModule } from './../app-routing.module';
 import { SubmenuComponent } from './submenu/submenu.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
-  declarations: [TopMenuNavigationComponent, SubmenuComponent],
+  declarations: [TopMenuNavigationComponent, SubmenuComponent, SidenavComponent],
   imports: [
     CommonModule,
     MatIconModule,
@@ -25,9 +27,10 @@ import { SubmenuComponent } from './submenu/submenu.component';
     AppRoutingModule,
     MatToolbarModule,
     MatButtonModule,
+    MatSidenavModule,
   ],
   exports: [
-    TopMenuNavigationComponent,
+    TopMenuNavigationComponent, SidenavComponent
   ],
 })
 export class MenusModule { }

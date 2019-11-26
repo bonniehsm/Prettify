@@ -1,0 +1,13 @@
+<div *ngIf="allSubProductCategories$">
+    <h3>Shop by Category</h3>
+    <div *ngFor="let subCategory of allSubProductCategories$ | keyvalue">
+        <h4>{{ subCategory.key | uppercase }}</h4>
+        <div *ngFor="let group of subCategory.value | keyvalue">
+            
+            <h5>{{ group.key | titlecase }}</h5>
+            <!--a [title]="group" href="#">
+                {{ group | json }}
+            </a-->
+        </div>
+    </div>
+</div>

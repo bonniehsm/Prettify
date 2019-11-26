@@ -12,8 +12,6 @@ const routes: Routes = [
   { path: 'wishlist', component: WishlistComponent },
   { path: 'shop', redirectTo: '', pathMatch: 'full' },
   { path: '', component: HomeComponent },
-  /* '**' means to match everything - not just one word but anything that follows it e.g. foo/bar/baz */
-  //uncomment after home component created 
   { path: '**', component: PageNotFoundComponent },
 ];
 
