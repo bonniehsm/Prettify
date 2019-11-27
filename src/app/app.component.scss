@@ -1,5 +1,10 @@
-.main__container {
+.root__container {
+    height: 100vh;
+}
 
+.main__container {
+    height: 100%;
+    height: calc(97vh - 40px);
 }
 
 mat-sidenav-container, mat-sidenav-content, mat-sidenav {
@@ -9,8 +14,5 @@ mat-sidenav-container, mat-sidenav-content, mat-sidenav {
 mat-sidenav {
     width: 250px;
 }
- 
-main {
-    padding: 10px;
-}
+
 

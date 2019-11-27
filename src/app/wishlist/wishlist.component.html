@@ -1,4 +1,5 @@
-<h2>Wishlist</h2>
+<div class="wishlist-container">
+    <h2>Wishlist</h2>
 
 <!-- TEST -->
 <!--div>
@@ -12,10 +13,11 @@
 </div-->
 
 
-<mat-nav-list *ngIf="items" class="wishlist-all-items">
-    <a mat-list-item *ngFor="let item of items" class="wishlist-item" routerLink="/details/{{item.id}}">
-        <h4 matLine>{{item.name}}</h4>
-        <p matLine>{{item.option}}</p>
-        <p>{{item.price | currency }}</p>    
-    </a>
-</mat-nav-list>
+    <mat-nav-list *ngIf="items" class="wishlist-all-items">
+        <a mat-list-item *ngFor="let item of items" class="wishlist-item" routerLink="/details/{{item.id}}">
+            <h4 matLine>{{item.name}}</h4>
+            <p matLine>{{item.option}}</p>
+            <p>{{item.price | currency }}</p>    
+        </a>
+    </mat-nav-list>
+</div>

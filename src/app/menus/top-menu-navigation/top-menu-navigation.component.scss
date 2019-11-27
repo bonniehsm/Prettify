@@ -12,6 +12,7 @@
 /* Top Menu Navigation */
 .mobile-topnav-bar {
     display: none;
+    padding: 12px;
     .top-nav-brand {
         display: inline-block;
     }
@@ -27,9 +28,14 @@
         opacity: 1;
     }
 }
-
 .topnav-toolbar {
+    // height: 100%;
+    min-height: 40px;
+}
+
+.topnav-toolbar-row {
     background-color: white;
+    height: inherit;
 }
 
 .fill-remaining-space {

@@ -2,7 +2,7 @@
     <mat-toolbar class="mobile-subcategoriesToolbar">
         <mat-toolbar-row>
             <button mat-raised-button [matMenuTriggerFor]="subcategoriesMenu">
-                Shop by Categories
+                Shop by {{ category | titlecase }} Categories
             </button> 
             <a class="mobile-topnav-brand" routerLink="/">{{brand | uppercase}}</a>            
             <mat-menu #subcategoriesMenu="matMenu" class="mobile-subcategoriesMenu">
