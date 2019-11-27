@@ -8,13 +8,13 @@
             <mat-menu #subcategoriesMenu="matMenu" class="mobile-subcategoriesMenu">
                 <div *ngFor="let subCategory of allSubProductCategories$[category] | keyvalue"
                     class="mobile-subcategoriesMenu">
-                    <h4>{{subCategory.key | uppercase}}</h4>
+                    <h4>{{subCategory.key | titlecase }}</h4>
                     <ul>
-                    <li *ngFor="let group of subCategory.value">
-                        <a [title]="group" href="#">
-                            {{group}}
-                        </a>
-                    </li>              
+                        <li *ngFor="let group of subCategory.value">
+                            <a [title]="group" href="#" class="category-links">
+                                {{group}}
+                            </a>
+                        </li>              
                     </ul>      
                 </div>
             </mat-menu>
@@ -25,12 +25,14 @@
             <div *ngIf="allSubProductCategories$">
                 <h3>{{category | uppercase}}</h3>
                 <div *ngFor="let subCategory of allSubProductCategories$[category] | keyvalue">
-                    <h4>{{subCategory.key | uppercase}}</h4>
-                    <div *ngFor="let group of subCategory.value">
-                        <a [title]="group" href="#">
+                    <h5>{{subCategory.key | titlecase }}</h5>
+                    <ul>
+                    <li *ngFor="let group of subCategory.value">
+                        <a [title]="group" href="#" class="category-links">
                             {{group}}
                         </a>
-                    </div>
+                    </li>
+                </ul>
                 </div>
             </div>
         </mat-sidenav>
@@ -40,7 +42,7 @@
                     <mat-card class="product-card">
                         <a class="product-tile-link" routerLink="/details/{{product.id}}">
                             <mat-card-header class="product-card--header">
-                                <mat-card-title>
+                                <mat-card-title class="product-title-header">
                                     <h6>{{product.name}}</h6>
                                 </mat-card-title>
                             </mat-card-header>

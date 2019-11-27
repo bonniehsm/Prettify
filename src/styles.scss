@@ -6,6 +6,7 @@
 @import 'themes.scss';
 @import 'app/menus/top-menu-navigation/top-menu-navigation.component.scss';
 @import 'app/home/home.component.scss';
+@import 'app/shop/shop.component.scss';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
@@ -16,4 +17,5 @@ a { text-decoration: none; }
     @include angular-material-theme($main-theme);
     @include desktop-topnav($main-theme);
     @include home-theme($main-theme);
+    @include shop-theme($main-theme);
 }
