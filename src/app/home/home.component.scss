@@ -12,6 +12,9 @@
         // background-color: bisque;
         // background-color: mat-color($background, darker); 
     }
+    .home-about {
+        color: mat-color($primary, darker);
+    }
     .highlight-blurb {
         color: mat-color($accent, darker);
     }
@@ -28,7 +31,8 @@
     flex-direction: column;
     justify-content: space-around;
     div:first-child {
-        font-size: 1.2em;
+        font-size: 1.4em;
+        line-height: 2.5;
     }
 }
 

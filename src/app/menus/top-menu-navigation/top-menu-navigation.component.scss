@@ -2,9 +2,15 @@
 
 @mixin desktop-topnav($theme) {
     $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
 
     .top-nav-brand { 
         color: mat-color($primary); 
+        opacity: 1;
+        letter-spacing: 1.2px;
+    }
+    .desktop-topnav-bar a, .mobile-category-menu a {
+        color: map-get($accent, 800);
         opacity: 1;
     }
 }
