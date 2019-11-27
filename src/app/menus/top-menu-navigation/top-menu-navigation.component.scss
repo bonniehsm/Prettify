@@ -22,6 +22,7 @@
 
 .desktop-topnav-bar {
     display: block;
+    width: 100%;
     a:first-of-type {
         opacity: 1;
     }
@@ -29,6 +30,11 @@
 
 .fill-remaining-space {
     flex: 1 1 auto;
+}
+
+.menuAccountSettings {
+    position: absolute;
+    right: 10px;    
 }
 
 /** Media Queries **/
