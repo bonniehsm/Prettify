@@ -3,6 +3,7 @@ import {
   MatListModule,
 } from '@angular/material';
 import { SubmenuComponent } from './submenu.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('SubmenuComponent', () => {
   let component: SubmenuComponent;
@@ -12,6 +13,7 @@ describe('SubmenuComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         MatListModule,
+        RouterTestingModule,
       ],
       declarations: [ SubmenuComponent ]
     })

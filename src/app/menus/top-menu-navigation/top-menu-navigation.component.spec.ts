@@ -6,8 +6,11 @@ import {
   MatListModule,
 } from '@angular/material';
 
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 import { SubmenuComponent } from '../submenu/submenu.component';
 import { TopMenuNavigationComponent } from './top-menu-navigation.component';
+import { AppComponent } from '../../app.component';
 
 describe('TopMenuNavigationComponent', () => {
   let component: TopMenuNavigationComponent;
@@ -16,6 +19,8 @@ describe('TopMenuNavigationComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
+        HttpClientModule,
+        RouterTestingModule,
         MatMenuModule,
         MatIconModule,
         MatToolbarModule,
@@ -24,6 +29,7 @@ describe('TopMenuNavigationComponent', () => {
       declarations: [ 
         TopMenuNavigationComponent,
         SubmenuComponent,
+        AppComponent,
       ]
     })
     .compileComponents();
