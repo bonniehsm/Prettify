@@ -1,5 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import {  
+  MatMenuModule,
+  MatToolbarModule,
+  MatSidenavModule,
+  MatCardModule,
+} from '@angular/material';
 import { ShopComponent } from './shop.component';
 
 describe('ShopComponent', () => {
@@ -8,6 +14,13 @@ describe('ShopComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        MatMenuModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatCardModule,
+      ],
       declarations: [ ShopComponent ]
     })
     .compileComponents();

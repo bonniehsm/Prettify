@@ -1,5 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { RouterTestingModule } from '@angular/router/testing';
+import { 
+  MatListModule,
+} from '@angular/material';
 import { WishlistComponent } from './wishlist.component';
 
 describe('WishlistComponent', () => {
@@ -8,9 +11,13 @@ describe('WishlistComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule,
+        MatListModule,
+      ],
       declarations: [ WishlistComponent ]
     })
-    .compileComponents();
+    .compileComponents(); 
   }));
 
   beforeEach(() => {

@@ -1,5 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { 
+  MatMenuModule,
+  MatIconModule,
+  MatToolbarModule,
+  MatListModule,
+} from '@angular/material';
 
+import { SubmenuComponent } from '../submenu/submenu.component';
 import { TopMenuNavigationComponent } from './top-menu-navigation.component';
 
 describe('TopMenuNavigationComponent', () => {
@@ -8,7 +15,16 @@ describe('TopMenuNavigationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TopMenuNavigationComponent ]
+      imports: [
+        MatMenuModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatListModule,
+      ],
+      declarations: [ 
+        TopMenuNavigationComponent,
+        SubmenuComponent,
+      ]
     })
     .compileComponents();
   }));

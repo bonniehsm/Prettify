@@ -1,5 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { 
+  MatListModule,
+} from '@angular/material';
 import { SubmenuComponent } from './submenu.component';
 
 describe('SubmenuComponent', () => {
@@ -8,6 +10,9 @@ describe('SubmenuComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        MatListModule,
+      ],
       declarations: [ SubmenuComponent ]
     })
     .compileComponents();

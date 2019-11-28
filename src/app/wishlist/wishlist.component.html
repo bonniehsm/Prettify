@@ -20,4 +20,8 @@
             <p>{{item.price | currency }}</p>    
         </a>
     </mat-nav-list>
+
+    <div *ngIf="!items">
+        <p>There are items in your wishlist.</p>
+    </div>
 </div>
