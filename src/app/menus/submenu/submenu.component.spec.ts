@@ -2,8 +2,11 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { 
   MatListModule,
 } from '@angular/material';
-import { SubmenuComponent } from './submenu.component';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientModule } from '@angular/common/http';
+
+import { ProductService } from '../../product.service';
+import { SubmenuComponent } from './submenu.component';
 
 describe('SubmenuComponent', () => {
   let component: SubmenuComponent;
@@ -14,8 +17,10 @@ describe('SubmenuComponent', () => {
       imports: [
         MatListModule,
         RouterTestingModule,
+        HttpClientModule,
       ],
-      declarations: [ SubmenuComponent ]
+      declarations: [ SubmenuComponent ],
+      providers: [ ProductService, ]
     })
     .compileComponents();
   }));
