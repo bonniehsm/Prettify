@@ -12,22 +12,44 @@ import {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
   animations: [
-    trigger('ready', [
-      state('loaded', style({
+    trigger('loadedNotLoaded', [ 
+      state('lowOpacity', style({
+        opacity: 0,
+      })),
+      state('highOpacity', style({
         opacity: 1,
       })),
-      transition('* => loaded', [
-        animate('1s')
+      state('offScreen', style({
+        marginLeft: '-250px',
+      })),
+      state('onScreen', style({
+        marginLeft: '0px',
+      })),      
+      transition('lowOpacity => highOpacity', [
+        animate('2.2s ease-in-out')
       ]),
-    ])
+      transition('offScreen => onScreen', [
+        animate('1.5s 1s ease-out')
+      ]),      
+    ]),
   ],
 })
+
 export class HomeComponent implements OnInit {
+  isLoaded = false;
 
   constructor() { }
 
   ngOnInit() {
+    
+  }
 
+  ngAfterViewInit(){
+    this.isLoaded = true;
+  }
+
+  toggle(){
+    this.isLoaded = !this.isLoaded;
   }
 
 }

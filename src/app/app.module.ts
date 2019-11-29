@@ -22,7 +22,7 @@ import { MenusModule } from './menus/menus.module';
 import { AppComponent } from './app.component';
 import { ShopComponent } from './shop/shop.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { TopMenuNavigationComponent } from './menus/top-menu-navigation/top-menu-navigation.component';
+// import { TopMenuNavigationComponent } from './menus/top-menu-navigation/top-menu-navigation.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { HomeComponent } from './home/home.component';
@@ -32,7 +32,7 @@ import { HomeComponent } from './home/home.component';
     AppComponent,
     ShopComponent,
     ProductDetailComponent,
-    TopMenuNavigationComponent,
+    // TopMenuNavigationComponent,
     PageNotFoundComponent,
     WishlistComponent,
     HomeComponent,
