@@ -20,10 +20,10 @@ import {
         opacity: 1,
       })),
       state('offScreen', style({
-        marginLeft: '-250px',
+        transform: 'translateX(-100%)',
       })),
       state('onScreen', style({
-        marginLeft: '0px',
+        transform: 'translateX(0)',
       })),      
       transition('lowOpacity => highOpacity', [
         animate('2.2s ease-in-out')
