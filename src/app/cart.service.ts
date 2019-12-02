@@ -14,7 +14,7 @@ export class CartService {
   //check if storage object created
   //  returns true if storage created for wishlsit
   //  otherwise, returns false
-  checkForCartList(): boolean {
+  checkCartLocalStorageExists(): boolean {
     if(this.cartLocalStorage.getItem(this.key)){
       return true;
     }
@@ -29,11 +29,16 @@ export class CartService {
 
   //add item to cart
   addToCart(item: CartItem): void {   
-    if(!this.checkForCartList()){
+    if(!this.checkCartLocalStorageExists()){
       this.createCartStorage();
     }  
     let cartList = this.getCartItems();    
-    cartList.push(item);
+    if(this.checkCartByIdAndOption(item.id, item.option)){
+      //increase quantity by 1 for that item in the 'cartList'
+        
+    }else{
+      cartList.push(item);
+    }
     localStorage.setItem(this.key, JSON.stringify(cartList));
   }
 
@@ -63,13 +68,13 @@ export class CartService {
   }
 
   //check if item exists in the cart
-  checkCartById(id: number): boolean {
+  checkCartByIdAndOption(id: number, option:string): boolean {
     let cartItems = this.getCartItems();
     let inCart = false;
     try{
       cartItems.forEach(item => {
-        if(item.id === id){
-          // console.log(`inc art`);
+        if(item.id === id && item.option === option){
+          // console.log(`in cart`);
           inCart =  true;
         }
       });
