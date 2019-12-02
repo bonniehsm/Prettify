@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostBinding } from '@angular/core';
 import {
   trigger,
   state,
   style,
   animate,
   transition,
+  query,
 } from '@angular/animations';
 
 @Component({
@@ -36,6 +37,9 @@ import {
 })
 
 export class HomeComponent implements OnInit {
+  @HostBinding('@testAnimation')
+
+
   isLoaded = false;
 
   constructor() { }
