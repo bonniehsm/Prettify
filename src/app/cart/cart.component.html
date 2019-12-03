@@ -4,7 +4,7 @@
     <h4>{{item.name}}</h4>
     <p>{{item.option}}</p>
     <p>{{item.quantity}}</p>
-    <p>{{item.price | currency}}</p>
+    <p>{{item.price | cartSubtotal: item.quantity | currency}}</p>
     <button (click)="removeFromCart()" mat-icon-button>
         <mat-icon>remove_shopping_cart</mat-icon> &nbsp; Remove
     </button>

@@ -27,6 +27,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { HomeComponent } from './home/home.component';
 import { CartComponent } from './cart/cart.component';
+import { CartSubtotalPipe } from './cart-subtotal.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { CartComponent } from './cart/cart.component';
     WishlistComponent,
     HomeComponent,
     CartComponent,
+    CartSubtotalPipe,    
   ],
   imports: [
     BrowserModule,
@@ -62,6 +64,7 @@ import { CartComponent } from './cart/cart.component';
     MatToolbarModule,
     AppRoutingModule,    
   ],
+  exports: [CartSubtotalPipe],
   providers: [],
   bootstrap: [AppComponent]
 })
