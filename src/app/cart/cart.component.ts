@@ -9,12 +9,18 @@ import { CartItem } from '../cart-item';
 })
 export class CartComponent implements OnInit {
   private cartItems: CartItem[];
+  private subtotal = 0;
 
   constructor(private cartService: CartService) { }
 
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems();
-    this.cartItems.forEach(item => console.log( `id: ${item.id} and option: ${item.option}`));
+    this.cartItems.forEach(item => {
+      this.subtotal += item.price * item.quantity;
+    });
   }
 
+  removeFromCart(): void {
+
+  }
 }

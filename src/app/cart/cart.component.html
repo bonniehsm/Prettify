@@ -1,3 +1,15 @@
-<p>cart works!</p>
+<!--{{ cartItems | json }}-->
 
-{{ cartItems | json }}
+<div *ngFor="let item of cartItems">
+    <h4>{{item.name}}</h4>
+    <p>{{item.option}}</p>
+    <p>{{item.quantity}}</p>
+    <p>{{item.price | currency}}</p>
+    <button (click)="removeFromCart()" mat-icon-button>
+        <mat-icon>remove_shopping_cart</mat-icon> &nbsp; Remove
+    </button>
+</div>
+
+<div>
+    <p>Subtotal: {{subtotal | currency}}</p>
+</div>
