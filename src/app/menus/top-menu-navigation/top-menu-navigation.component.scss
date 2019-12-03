@@ -13,6 +13,9 @@
         color: map-get($accent, 800);
         opacity: 1;
     }
+    .cartImgIcon { 
+        color: mat-color($accent); 
+    }
 }
 
 /* Top Menu Navigation */
@@ -48,9 +51,24 @@
     flex: 1 1 auto;
 }
 
-.menuAccountSettings {
+.navigationButtons {
     position: absolute;
     right: 10px;    
+}
+
+.cartLinkAndIcon {
+    line-height: 40px;
+    height: 40px;
+    width: 40px;
+    padding: 0;
+    box-sizing: border-box;
+    display: inline-block;
+    vertical-align: baseline;
+    text-align: center;
+    margin: 0;    
+}
+.cartImgIcon {
+    vertical-align: middle;
 }
 
 /** Media Queries **/

@@ -42,15 +42,24 @@
             </mat-menu>
         </nav>
 
-        <!-- Account and Settings Menu-->       
-        <button mat-icon-button [matMenuTriggerFor]="accountMenu" class="menuAccountSettings" color="accent">
-            <mat-icon>apps</mat-icon>
-        </button>
-        <mat-menu #accountMenu="matMenu">
-            <button mat-menu-item>Account</button>
-            <button mat-menu-item>Purchase History</button>
-            <button mat-menu-item>Settings</button>
-        </mat-menu>               
+        <div class="navigationButtons">
+            <!-- Account and Settings Menu-->       
+            <button mat-icon-button [matMenuTriggerFor]="accountMenu" color="accent">
+                <mat-icon>apps</mat-icon>
+            </button>
+            <mat-menu #accountMenu="matMenu">
+                <button mat-menu-item>Account</button>
+                <button mat-menu-item>Purchase History</button>
+                <button mat-menu-item>Settings</button>
+            </mat-menu>
+            
+            <!--Cart-->
+            <div class="cartLinkAndIcon">
+                <a class="cartLink" routerLink="/cart" title="Shopping Cart">
+                    <mat-icon class="cartImgIcon">shopping_cart</mat-icon>
+                </a>
+            </div>
+        </div>
     </mat-toolbar-row>
 </mat-toolbar>
 

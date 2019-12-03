@@ -26,6 +26,7 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { HomeComponent } from './home/home.component';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { HomeComponent } from './home/home.component';
     PageNotFoundComponent,
     WishlistComponent,
     HomeComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,
