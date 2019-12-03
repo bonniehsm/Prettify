@@ -28,24 +28,36 @@ export class CartService {
   }
 
   //add item to cart
-  addToCart(item: CartItem): void {   
+  addToCart(cartItem: CartItem): void {   
     if(!this.checkCartLocalStorageExists()){
+      console.log(`No LocalStorage for cart items. call createCartStorage()`);
       this.createCartStorage();
+      //add to cart
     }  
-    let cartList = this.getCartItems();    
-    if(this.checkCartByIdAndOption(item.id, item.option)){
-      //increase quantity by 1 for that item in the 'cartList'
-        
-    }else{
-      cartList.push(item);
+    let cartItems = this.getCartItems();
+    let found = false;    
+    //check if item exists in cart already        
+    for(let i = 0; i < cartItems.length; i++){
+      if(cartItem.id === cartItems[i].id && cartItem.option === cartItems[i].option){
+        console.log(`item found. increment quantity`);
+        cartItems[i].quantity++;
+        found = true;
+        break;
+      }
+    }    
+    if(!found){
+      console.log(`push item to cart`)
+      cartItems.push(cartItem);
     }
-    localStorage.setItem(this.key, JSON.stringify(cartList));
+    localStorage.setItem(this.key, JSON.stringify(cartItems));
   }
 
   //remove from cart list
   removeFromCart(removeItem: CartItem): void {
     let cart = this.getCartItems();
-    let newCart = cart.filter(item => item.id != removeItem.id);
+    let newCart = cart.filter(item => {
+      item.id != removeItem.id && item.option != removeItem.option
+    });
     localStorage.setItem(this.key, JSON.stringify(newCart));
   }
   
@@ -68,20 +80,20 @@ export class CartService {
   }
 
   //check if item exists in the cart
-  checkCartByIdAndOption(id: number, option:string): boolean {
-    let cartItems = this.getCartItems();
-    let inCart = false;
-    try{
-      cartItems.forEach(item => {
-        if(item.id === id && item.option === option){
-          // console.log(`in cart`);
-          inCart =  true;
-        }
-      });
-    }catch(error){
-      // console.log(`error: ${error}`);
-    }
-    return inCart;
-  }
+  // checkCartByIdAndOption(id: number, option:string): boolean {
+  //   let cartItems = this.getCartItems();
+  //   let inCart = false;
+  //   try{
+  //     cartItems.forEach(item => {
+  //       if(item.id === id && item.option === option){
+  //         // console.log(`in cart`);
+  //         inCart =  true;
+  //       }
+  //     });
+  //   }catch(error){
+  //     // console.log(`error: ${error}`);
+  //   }
+  //   return inCart;
+  // }
 
 }

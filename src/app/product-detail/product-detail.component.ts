@@ -25,6 +25,7 @@ export class ProductDetailComponent implements OnInit {
     private productService: ProductService,
     private route: ActivatedRoute,
     private wishlistService: WishlistService,
+    private cartService: CartService,
     ) { }
 
   ngOnInit() {
@@ -83,7 +84,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addToCart(): void {
-
+    this.cartService.addToCart(this.model);
   }
 
 }
