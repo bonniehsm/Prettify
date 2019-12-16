@@ -1,19 +1,9 @@
 @import '~@angular/material/theming';
 
 @mixin cart-theme($theme) {
-    $primary: map-get($theme, primary);  
-    $accent: map-get($theme, accent);        
-    $foreground: map-get($theme, foreground); 
-    $background: map-get($theme, background);  
-    
-    .home-container {         
-        border: 6px solid mat-color($primary);
-    }
-    .home-about {
-        color: mat-color($primary, darker);
-    }
-    .highlight-blurb {
-        color: mat-color($accent, darker);
+    $primary: map-get($theme, primary);        
+    .cart-calculations {
+        border-top: 1px solid mat-color($primary, lighter);
     }
 }
 
@@ -44,4 +34,12 @@
 
 .product-option {
     font-style: italic;
+}
+
+.cart-calculations {
+    text-align: end;
+    p:first-child { 
+        font-size: 1.3em;
+        font-weight: bold;
+    }
 }

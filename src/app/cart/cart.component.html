@@ -15,9 +15,9 @@
         </div>
     </div>
 
-    <div>
-        <p>Total: </p>
+    <div class="cart-calculations">
+        <p>Total: {{subtotal * TAX_RATE + subtotal | currency}}</p>
         <p>Subtotal: {{subtotal | currency}}</p>
-        <p>Tax: </p>
+        <p>Tax: {{subtotal * TAX_RATE | currency}}</p>
     </div>
 </div>

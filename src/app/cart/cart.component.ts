@@ -10,6 +10,7 @@ import { CartItem } from '../cart-item';
 export class CartComponent implements OnInit {
   private cartItems: CartItem[];
   private subtotal = 0;
+  private TAX_RATE = 0.13;
 
   constructor(private cartService: CartService) { }
 
