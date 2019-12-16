@@ -1,15 +1,23 @@
-<!--{{ cartItems | json }}-->
+<div class="cart-container">
+    <div *ngFor="let item of cartItems" class="product-incart">
+        <div class="remove-product">
+            <button (click)="removeFromCart()" mat-button>
+                <mat-icon color="accent">remove_shopping_cart</mat-icon> &nbsp; Remove
+            </button>    
+        </div>
+        <div class="product-info">
+            <h4 class="product-name">{{item.name}}</h4>
+            <span class="product-option">{{item.option}}</span>
+            <p>Quantity: {{item.quantity}}</p>
+        </div>
+        <div class="product-price">
+            <p>{{item.price | cartSubtotal: item.quantity | currency}}</p>
+        </div>
+    </div>
 
-<div *ngFor="let item of cartItems">
-    <h4>{{item.name}}</h4>
-    <p>{{item.option}}</p>
-    <p>{{item.quantity}}</p>
-    <p>{{item.price | cartSubtotal: item.quantity | currency}}</p>
-    <button (click)="removeFromCart()" mat-icon-button>
-        <mat-icon>remove_shopping_cart</mat-icon> &nbsp; Remove
-    </button>
-</div>
-
-<div>
-    <p>Subtotal: {{subtotal | currency}}</p>
+    <div>
+        <p>Total: </p>
+        <p>Subtotal: {{subtotal | currency}}</p>
+        <p>Tax: </p>
+    </div>
 </div>

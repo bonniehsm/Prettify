@@ -1,0 +1,47 @@
+@import '~@angular/material/theming';
+
+@mixin cart-theme($theme) {
+    $primary: map-get($theme, primary);  
+    $accent: map-get($theme, accent);        
+    $foreground: map-get($theme, foreground); 
+    $background: map-get($theme, background);  
+    
+    .home-container {         
+        border: 6px solid mat-color($primary);
+    }
+    .home-about {
+        color: mat-color($primary, darker);
+    }
+    .highlight-blurb {
+        color: mat-color($accent, darker);
+    }
+}
+
+.cart-container {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.product-incart {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.remove-product, .product-price {
+    align-self: center;
+}
+.product-info {
+    margin-left: 10%;
+}
+.product-price {
+    margin-left: auto;
+}
+
+.product-name {
+    margin-bottom: 0.2em;
+}
+
+.product-option {
+    font-style: italic;
+}
