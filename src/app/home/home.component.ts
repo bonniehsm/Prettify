@@ -37,9 +37,6 @@ import {
 })
 
 export class HomeComponent implements OnInit {
-  @HostBinding('@testAnimation')
-
-
   isLoaded = false;
 
   constructor() { }
