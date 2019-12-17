@@ -3,14 +3,9 @@
 @mixin home-theme($theme) {
     $primary: map-get($theme, primary);  
     $accent: map-get($theme, accent);    
-    // $warn: map-get($theme, warn);    
-    $foreground: map-get($theme, foreground); 
-    $background: map-get($theme, background);  
-    
+
     .home-container {         
         border: 6px solid mat-color($primary);
-        // background-color: bisque;
-        // background-color: mat-color($background, darker); 
     }
     .home-about {
         color: mat-color($primary, darker);
@@ -34,10 +29,6 @@
         font-size: 1.4em;
         line-height: 2.5;
     }
-}
-
-.about-directive {
-    
 }
 
 .highlight-blurb {
